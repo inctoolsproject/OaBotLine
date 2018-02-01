@@ -343,7 +343,7 @@ if($message['type']=='text') {
             )
         );
     }
-		else if ($command == '/keluar') {
+		if ($command == '/keluar') {
 		$push = array(
 							'to' => $groupId,									
 							'messages' => array(

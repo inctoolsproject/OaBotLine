@@ -153,7 +153,8 @@ function lokasi($keyword) {
     $parsed = array(); 
     $parsed['lat'] = $json['results']['0']['geometry']['location']['lat']; 
     $parsed['long'] = $json['results']['0']['geometry']['location']['lng']; 
-	$parsed['loct'] = $json['results']['0']['formatted_address']; 
+	$parsed['loct1'] = $json['results']['0']['address_components']['0']['long_name']
+	$parsed['loct2'] = $json['results']['1']['address_components']['0']['long_name']
     return $parsed; 
 }
 #-------------------------[Function]-------------------------#
@@ -322,8 +323,8 @@ if($message['type']=='text') {
             'messages' => array(
                 array(
 					'type' => 'location',
-					'title' => substr($result['loct'], 0, 20),	
-					'address' => $result['loct'],
+					'title' => $options,	
+					'address' => $result['loct1'].','.$result['loct2'],
 					'latitude' => $result['lat'],
 					'longitude' => $result['long'] 
                 )

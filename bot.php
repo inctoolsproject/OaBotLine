@@ -345,15 +345,14 @@ if($message['type']=='text') {
         );
     }
 		if ($command == '/bye') {
-		$balas = array(
-				'to' => $groupId,									
-				'messages' => array(
-					array(
-							'type' => 'text',					
-							'text' => 'Good Bye'
-						)
-				)
-			);
+        $balas = array (
+				'type' => 'leave',
+				'source' => 
+				array (
+					'type' => 'group',
+					'groupId' => $groupId,
+				),
+			)
         $psn = $client->leaveGroup($groupId);
     }	
 	

@@ -781,7 +781,7 @@ if ($command == '/song-unduh') {
                           'template' =>  
                           array ( 
                             'type' => 'buttons', 
-                            'thumbnailImageUrl' => 'https://nationalzoo.si.edu/sites/default/files/styles/slide_1400x700/public/support/adopt/giantpanda-03.jpg', 
+                            'thumbnailImageUrl' => 'https://image.prntscr.com/image/VqTuz613TXmInBuOdLBJbA.png', 
                             'imageAspectRatio' => 'rectangle', 
                             'imageSize' => 'cover', 
                             'imageBackgroundColor' => '#FFFFFF', 
@@ -795,13 +795,18 @@ if ($command == '/song-unduh') {
                                 'label' => 'Dengarkan', 
                                 'uri' => $result['unduh'], 
                               ), 
+							   1 =>  
+                              array ( 
+								'type' => 'message', 
+								'label' => 'Unduh',
+								'text' => '/song-unduh '.$options,
+                              ), 
                             ), 
                           ), 
                         ) 
             ) 
         ); 
-    }	
-	
+    }
 	}
 if (isset($balas)) {
     $result = json_encode($balas);

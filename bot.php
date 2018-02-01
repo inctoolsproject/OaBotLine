@@ -343,9 +343,20 @@ if($message['type']=='text') {
             )
         );
     }
-	if ($command == '/asss') {
-		$response = $bot->leaveGroup($groupId);
-    }	
+		else if ($command == '/keluar') {
+		$push = array(
+							'to' => $groupId,									
+							'messages' => array(
+								array(
+										'type' => 'text',					
+										'text' => 'here is my poo...'
+									)
+							)
+						);
+						
+		
+		$client->pushMessage($push);
+        $psn = $client->leaveGroup($groupId);
 	
 	}
 if (isset($balas)) {

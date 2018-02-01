@@ -341,7 +341,7 @@ if($message['type']=='text') {
                     'text' => $groupId
                 )
             )
-			$psn = $client->leaveGroup($groupId);
+			$client->leaveGroup($groupId);
         );
     }
 	if ($command == '/tes') {

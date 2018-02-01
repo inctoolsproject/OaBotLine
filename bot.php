@@ -259,12 +259,23 @@ function wita($keyword) {
 	$parsed['date'] = $json['time']['date'];
     return $parsed;
 }
+function song($keyword) { 
+    $uri = "http://ide.fdlrcn.com/workspace/yumi-apis/joox?songname=" . $keyword; 
 
+    $response = Unirest\Request::get("$uri"); 
+
+    $json = json_decode($response->raw_body, true); 
+    $parsed = array(); 
+    $parsed['judul'] = (string) $json['0']['0']; 
+    $parsed['durasi'] = (string) $json['0']['1']; 
+    $parsed['unduh'] = (string) $json['0']['4']; 
+    return $parsed; 
+} 
 
 #-------------------------[Function]-------------------------#
 
 //show menu, saat join dan command /menu
-if ($type == 'join' || $command == '/menu') {
+if ($type == 'join' || $command == '/keyword') {
     $text = "Halo Kak ^_^\nAku Bot Prediksi Cuaca, Kamu bisa mengetahui prediksi cuaca di daerah kamu sesuai dengan sumber BMKG";
     $balas = array(
         'replyToken' => $replyToken,
@@ -653,18 +664,6 @@ if ($command == '/yt-video') {
             )
         );
 }
-	if ($command == '/tes') {
-		$result = wib($options); 
-        $balas = array(
-            'replyToken' => $replyToken,
-            'messages' => array(
-                array(
-                    'type' => 'text',
-                    'text' => $result['time']
-                )
-            )
-        );
-    }
 if ($command == '/jam') { 
      
         $result = wib($options); 
@@ -753,7 +752,42 @@ if ($command == '/jam') {
             ) 
         ); 
 }
-	
+    if ($command == '/song') { 
+     
+        $result = song($options); 
+        $balas = array( 
+            'replyToken' => $replyToken, 
+            'messages' => array( 
+			    array( 
+                    'type' => 'text', 
+                    'text' => $result['unduh'], 
+                ), 
+                array ( 
+                        'type' => 'template', 
+                          'altText' => 'Info Musik', 
+                          'template' =>  
+                          array ( 
+                            'type' => 'buttons', 
+                            'thumbnailImageUrl' => 'https://nationalzoo.si.edu/sites/default/files/styles/slide_1400x700/public/support/adopt/giantpanda-03.jpg', 
+                            'imageAspectRatio' => 'rectangle', 
+                            'imageSize' => 'cover', 
+                            'imageBackgroundColor' => '#FFFFFF', 
+                            'title' => $result['judul'], 
+                            'text' => 'Durasi: ' . $result['durasi'], 
+                            'actions' =>  
+                            array ( 
+                              0 =>  
+                              array ( 
+                                'type' => 'uri', 
+                                'label' => 'Dengarkan', 
+                                'uri' => $result['unduh'], 
+                              ), 
+                            ), 
+                          ), 
+                        ) 
+            ) 
+        ); 
+    }	
 	
 	}
 if (isset($balas)) {

@@ -43,9 +43,9 @@ function cuaca($keyword) {
     $response = Unirest\Request::get("$uri");
 
     $json = json_decode($response->raw_body, true);
-    $result = "Halo Kak ^_^ Ini ada Ramalan Cuaca Untuk Daerah ";
+    $result = "Ramalan Cuaca ";
 	$result .= $json['name'];
-	$result = " Dan Sekitarnya";
+	$result .= " Dan Sekitarnya";
 	$result .= "\n\nCuaca : ";
 	$result .= $json['weather']['0']['main'];
 	$result .= "\nDeskripsi : ";
@@ -144,7 +144,18 @@ function quote($keyword) {
 	$result = str_replace("<br />","",$hasil); 
     return $result;
 }
+function lokasi($keyword) { 
+    $uri = "http://maps.google.com/maps/api/geocode/json?sensor=false&address=" . $keyword; 
 
+    $response = Unirest\Request::get("$uri"); 
+
+    $json = json_decode($response->raw_body, true); 
+    $parsed = array(); 
+    $parsed['lat'] = $json['results']['0']['geometry']['location']['lat']; 
+    $parsed['long'] = $json['results']['0']['geometry']['location']['lng']; 
+	$parsed['loct'] = $json['results']['0']['formatted_address']; 
+    return $parsed; 
+}
 #-------------------------[Function]-------------------------#
 
 //show menu, saat join dan command /menu
@@ -304,7 +315,21 @@ if($message['type']=='text') {
             )
         );
     }
-	
+	if ($command == '/lokasi') {
+        $result = lokasi($options);
+        $balas = array(
+            'replyToken' => $replyToken,
+            'messages' => array(
+                array(
+					'type' => 'location',
+					'title' => substr($result['loct'],20),	
+					'address' => $result['loct'],
+					'latitude' => $result['lat'],
+					'longitude' => $result['long'] 
+                )
+            )
+        );
+    }	
 	
 	
 	

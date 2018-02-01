@@ -156,6 +156,109 @@ function lokasi($keyword) {
 	$parsed['loct1'] = $json['results']['0']['address_components']['0']['long_name'];
     return $parsed; 
 }
+function bitly($keyword) {
+    $uri = "https://api-ssl.bitly.com/v3/shorten?access_token=497e74afd44780116ed281ea35c7317285694bf1&longUrl=" . $keyword;
+
+    $response = Unirest\Request::get("$uri");
+
+    $json = json_decode($response->raw_body, true);
+    $result = "Berhasil\nURL Asli: ";
+	$result .= $json['data']['long_url'];
+	$result .= "\nURL Pendek: ";
+	$result .= $json['data']['url'];
+    return $result;
+}
+function youtube($keyword) {
+    $uri = "https://www.googleapis.com/youtube/v3/search?part=snippet&order=relevance&regionCode=lk&q=" . $keyword . "&key=AIzaSyB5cpL7DYDn_2c7QuExnGOZ1Wmg4AQmx8c&maxResults=10&type=video";
+	
+
+    $response = Unirest\Request::get("$uri");
+
+    $json = json_decode($response->raw_body, true);
+    $parsed = array();
+    $parsed['a1'] = $json['items']['0']['id']['videoId'];
+	$parsed['b1'] = $json['items']['0']['snippet']['title'];
+	$parsed['c1'] = $json['items']['0']['snippet']['thumbnails']['high']['url'];
+    $parsed['a2'] = $json['items']['1']['id']['videoId'];
+	$parsed['b2'] = $json['items']['1']['snippet']['title'];
+	$parsed['c2'] = $json['items']['1']['snippet']['thumbnails']['high']['url'];
+    $parsed['a3'] = $json['items']['2']['id']['videoId'];
+	$parsed['b3'] = $json['items']['2']['snippet']['title'];
+	$parsed['c3'] = $json['items']['2']['snippet']['thumbnails']['high']['url'];
+    $parsed['a4'] = $json['items']['3']['id']['videoId'];
+	$parsed['b4'] = $json['items']['3']['snippet']['title'];
+	$parsed['c4'] = $json['items']['3']['snippet']['thumbnails']['high']['url'];
+    $parsed['a5'] = $json['items']['4']['id']['videoId'];
+	$parsed['b5'] = $json['items']['4']['snippet']['title'];
+	$parsed['c5'] = $json['items']['4']['snippet']['thumbnails']['high']['url'];
+    $parsed['a6'] = $json['items']['5']['id']['videoId'];
+	$parsed['b6'] = $json['items']['5']['snippet']['title'];
+	$parsed['c6'] = $json['items']['5']['snippet']['thumbnails']['high']['url'];
+    $parsed['a7'] = $json['items']['6']['id']['videoId'];
+	$parsed['b7'] = $json['items']['6']['snippet']['title'];	
+	$parsed['c7'] = $json['items']['6']['snippet']['thumbnails']['high']['url'];
+    $parsed['a8'] = $json['items']['7']['id']['videoId'];
+	$parsed['b8'] = $json['items']['7']['snippet']['title'];
+	$parsed['c8'] = $json['items']['7']['snippet']['thumbnails']['high']['url'];
+    $parsed['a9'] = $json['items']['8']['id']['videoId'];
+	$parsed['b9'] = $json['items']['8']['snippet']['title'];
+	$parsed['c9'] = $json['items']['8']['snippet']['thumbnails']['high']['url'];
+    $parsed['a10'] = $json['items']['9']['id']['videoId'];
+	$parsed['b10'] = $json['items']['9']['snippet']['title'];	
+	$parsed['c10'] = $json['items']['9']['snippet']['thumbnails']['high']['url'];
+    return $parsed;
+}
+function yt($keyword) { 
+    $uri = "http://wahidganteng.ga/process/api/b967d83eed40cf9e17958b1dc85b1db7/youtube-downloader?url=https://www.youtube.com/watch?v=" . $keyword; 
+
+    $response = Unirest\Request::get("$uri"); 
+
+    $json = json_decode($response->raw_body, true); 
+    $result = $json['data']['1']['link']; 
+    return $result; 
+}
+function yt_pict($keyword) { 
+    $uri = "https://www.googleapis.com/youtube/v3/videos?key=AIzaSyB5cpL7DYDn_2c7QuExnGOZ1Wmg4AQmx8c&part=snippet,contentDetails,statistics,topicDetails&id=" . $keyword; 
+
+    $response = Unirest\Request::get("$uri"); 
+
+    $json = json_decode($response->raw_body, true); 
+    $result = $json['items']['0']['snippet']['thumbnails']['high']['url']; 
+    return $result; 
+}
+function wib($keyword) {
+    $uri = "https://time.siswadi.com/timezone/?address=Jakarta";
+
+    $response = Unirest\Request::get("$uri");
+
+    $json = json_decode($response->raw_body, true);
+	$parsed = array(); 
+	$parsed['time'] = $json['time']['time'];
+	$parsed['date'] = $json['time']['date'];
+    return $result;
+}
+function wit($keyword) {
+    $uri = "https://time.siswadi.com/timezone/?address=jayapura";
+
+    $response = Unirest\Request::get("$uri");
+
+    $json = json_decode($response->raw_body, true);
+	$parsed = array(); 
+	$parsed['time'] = $json['time']['time'];
+	$parsed['date'] = $json['time']['date'];
+    return $result;
+}
+function wita($keyword) {
+    $uri = "https://time.siswadi.com/timezone/?address=manado";
+
+    $response = Unirest\Request::get("$uri");
+
+    $json = json_decode($response->raw_body, true);
+	$parsed = array(); 
+	$parsed['time'] = $json['time']['time'];
+	$parsed['date'] = $json['time']['date'];
+    return $result;
+}
 
 
 #-------------------------[Function]-------------------------#
@@ -343,21 +446,314 @@ if($message['type']=='text') {
             )
         );
     }
-	else if ($command == '/keluar') {
-		$push = array(
-					'to' => $groupId,									
-					'messages' => array(
-						array(
-								'type' => 'text',					
-								'text' => 'here is my poo...'
-							)
-					)
-				);
-						
-		
-		$client->pushMessage($push);
-        $psn = $client->leaveGroup($groupId);
-		}
+	if ($command == '/pendekin') {
+
+        $result = bitly($options);
+        $balas = array(
+            'replyToken' => $replyToken,
+            'messages' => array(
+                array(
+                    'type' => 'text',
+                    'text' => $result
+                )
+            )
+        );
+	}
+	if ($command == '/youtube') {
+
+        $result = youtube($options);
+        $balas = array(
+            'replyToken' => $replyToken,
+            'messages' => array(
+				array (
+				  'type' => 'template',
+				  'altText' => 'Youtube',
+				  'template' => 
+				  array (
+				    'type' => 'carousel',
+				    'columns' => 
+				    array (
+				      0 => 
+				      array (
+				        'thumbnailImageUrl' => $result['c1'],
+				        'imageBackgroundColor' => '#FFFFFF',
+				        'text' => preg_replace('/[^a-z0-9_ ]/i', '', substr($result['b1'], 0, 47)).'...',
+				        'actions' => 
+				        array (
+				          0 => 
+				          array (
+				            'type' => 'message', 
+				            'label' => 'Stream Video',
+				            'text' => '/yt-video '.$result['a1'],
+				          ),
+				          1 => 
+				          array (
+				            'type' => 'uri',
+				            'label' => 'Youtube',
+				            'uri' => 'https://youtu.be/'.$result['a1'],
+				          ),
+				        ),
+				      ),
+				      1 => 
+				      array (
+				        'thumbnailImageUrl' => $result['c2'],
+				        'imageBackgroundColor' => '#000000',
+				        'text' => preg_replace('/[^a-z0-9_ ]/i', '', substr($result['b2'], 0, 47)).'...',
+				        'actions' => 
+				        array (
+				          0 => 
+				          array (
+				            'type' => 'message', 
+				            'label' => 'Stream Video',
+				            'text' => '/yt-video '.$result['a2'],
+				          ),
+				          1 => 
+				          array (
+				            'type' => 'uri',
+				            'label' => 'Youtube',
+				            'uri' => 'https://youtu.be/'.$result['a2'],
+				          ),
+				        ),
+				      ),	
+				      2 => 
+				      array (
+				        'thumbnailImageUrl' => $result['c3'],
+				        'imageBackgroundColor' => '#FFFFFF',
+				        'text' => preg_replace('/[^a-z0-9_ ]/i', '', substr($result['b3'], 0, 47)).'...',
+				        'actions' => 
+				        array (
+				          0 => 
+				          array (
+				            'type' => 'message', 
+				            'label' => 'Stream Video',
+				            'text' => '/yt-video '.$result['a3'],
+				          ),
+				          1 => 
+				          array (
+				            'type' => 'uri',
+				            'label' => 'Youtube',
+				            'uri' => 'https://youtu.be/'.$result['a3'],
+				          ),
+				        ),
+				      ),					  
+				      3 => 
+				      array (
+				        'thumbnailImageUrl' => $result['c4'],
+				        'imageBackgroundColor' => '#FFFFFF',
+				        'text' => preg_replace('/[^a-z0-9_ ]/i', '', substr($result['b4'], 0, 47)).'...',
+				        'actions' => 
+				        array (
+				          0 => 
+				          array (
+				            'type' => 'message', 
+				            'label' => 'Stream Video',
+				            'text' => '/yt-video '.$result['a4'],
+				          ),
+				          1 => 
+				          array (
+				            'type' => 'uri',
+				            'label' => 'Youtube',
+				            'uri' => 'https://youtu.be/'.$result['a4'],
+				          ),
+				        ),
+				      ),
+				      4 => 
+				      array (
+				        'thumbnailImageUrl' => $result['c5'],
+				        'imageBackgroundColor' => '#FFFFFF',
+				        'text' => preg_replace('/[^a-z0-9_ ]/i', '', substr($result['b5'], 0, 47)).'...',
+				        'actions' => 
+				        array (
+				          0 => 
+				          array (
+				            'type' => 'message', 
+				            'label' => 'Stream Video',
+				            'text' => '/yt-video '.$result['a5'],
+				          ),
+				          1 => 
+				          array (
+				            'type' => 'uri',
+				            'label' => 'Youtube',
+				            'uri' => 'https://youtu.be/'.$result['a5'],
+				          ),
+				        ),
+				      ),
+				      5 => 
+				      array (
+				        'thumbnailImageUrl' => $result['c6'],
+				        'imageBackgroundColor' => '#FFFFFF',
+				        'text' => preg_replace('/[^a-z0-9_ ]/i', '', substr($result['b6'], 0, 47)).'...',
+				        'actions' => 
+				        array (
+				          0 => 
+				          array (
+				            'type' => 'message', 
+				            'label' => 'Stream Video',
+				            'text' => '/yt-video '.$result['a6'],
+				          ),
+				          1 => 
+				          array (
+				            'type' => 'uri',
+				            'label' => 'Youtube',
+				            'uri' => 'https://youtu.be/'.$result['a6'],
+				          ),
+				        ),
+				      ),					  
+				      6 => 
+				      array (
+				        'thumbnailImageUrl' => $result['c7'],
+				        'imageBackgroundColor' => '#FFFFFF',
+				        'text' => preg_replace('/[^a-z0-9_ ]/i', '', substr($result['b7'], 0, 47)).'...',
+				        'actions' => 
+				        array (
+				          0 => 
+				          array (
+				            'type' => 'message', 
+				            'label' => 'Stream Video',
+				            'text' => '/yt-video '.$result['a7'],
+				          ),
+				          1 => 
+				          array (
+				            'type' => 'uri',
+				            'label' => 'Youtube',
+				            'uri' => 'https://youtu.be/'.$result['a7'],
+				          ),
+				        ),
+				      ),					  
+				      7 => 
+				      array (
+				        'thumbnailImageUrl' => $result['c8'],
+				        'imageBackgroundColor' => '#FFFFFF',
+				        'text' => preg_replace('/[^a-z0-9_ ]/i', '', substr($result['b8'], 0, 47)).'...',
+				        'actions' => 
+				        array (
+				          0 => 
+				          array (
+				            'type' => 'message', 
+				            'label' => 'Stream Video',
+				            'text' => '/yt-video '.$result['a8'],
+				          ),
+				          1 => 
+				          array (
+				            'type' => 'uri',
+				            'label' => 'Youtube',
+				            'uri' => 'https://youtu.be/'.$result['a8'],
+				          ),
+				        ),
+				      ),					  
+				    ),
+				    'imageAspectRatio' => 'rectangle',
+				    'imageSize' => 'cover',
+				  ),
+				)		
+            )
+        );
+}
+if ($command == '/yt-video') {
+
+        $result = yt($options);
+		$results = yt_pict($options);
+        $balas = array(
+            'replyToken' => $replyToken,
+            'messages' => array(
+                array(
+                'type' => 'video', 
+                'originalContentUrl' => $result, 
+                'previewImageUrl' => $results, 
+                )
+            )
+        );
+}
+if ($command == '/jam') { 
+     
+        $result = wib($options); 
+		$result2 = wit($options); 
+		$result3 = wita($options); 
+        $balas = array( 
+            'replyToken' => $replyToken, 
+            'messages' => array( 
+                array ( 
+                  'type' => 'template', 
+                  'altText' => 'Jam Indonesia', 
+                  'template' =>  
+                  array ( 
+                    'type' => 'carousel', 
+                    'columns' =>  
+                    array ( 
+                      0 =>  
+                      array ( 
+                        'thumbnailImageUrl' => 'https://nationalzoo.si.edu/sites/default/files/styles/slide_1400x700/public/support/adopt/giantpanda-03.jpg', 
+                        'imageBackgroundColor' => '#FFFFFF', 
+                        'title' => 'WIB', 
+                        'text' => 'Jam Indonesia', 
+                        'actions' =>  
+                        array ( 
+                          0 =>  
+                          array ( 
+                            'type' => 'postback', 
+                            'label' => $result['time'], 
+                            'data' => $result['time'], 
+                          ), 
+                          1 =>  
+                          array ( 
+                            'type' => 'postback', 
+                            'label' => $result['date'],
+                            'data' => $result['date'],
+                          ), 
+                        ), 
+                      ), 
+                      1 =>  
+                      array ( 
+                        'thumbnailImageUrl' => 'https://nationalzoo.si.edu/sites/default/files/styles/slide_1400x700/public/support/adopt/giantpanda-03.jpg', 
+                        'imageBackgroundColor' => '#000000', 
+                        'title' => 'WIT', 
+                        'text' => 'Jam Indonesia', 
+                        'actions' =>  
+                        array ( 
+                          0 =>  
+                          array ( 
+                            'type' => 'postback', 
+                            'label' => $result2['time'], 
+                            'data' => $result2['time'], 
+                          ), 
+                          1 =>  
+                          array ( 
+                            'type' => 'postback', 
+                            'label' => $result2['date'],
+                            'data' => $result2['date'],
+                          ), 
+                        ), 
+                      ), 
+					  2 =>  
+                      array ( 
+                        'thumbnailImageUrl' => 'https://nationalzoo.si.edu/sites/default/files/styles/slide_1400x700/public/support/adopt/giantpanda-03.jpg', 
+                        'imageBackgroundColor' => '#000000', 
+                        'title' => 'WITA', 
+                        'text' => 'Jam Indonesia', 
+                        'actions' =>  
+                        array ( 
+                          0 =>  
+                          array ( 
+                            'type' => 'postback', 
+                            'label' => $result3['time'], 
+                            'data' => $result3['time'], 
+                          ), 
+                          1 =>  
+                          array ( 
+                            'type' => 'postback', 
+                            'label' => $result3['date'],
+                            'data' => $result3['date'],
+                          ), 
+                        ),  
+                      ),
+                    ), 
+                  ), 
+                ) 
+            ) 
+        ); 
+}
+	
+	
 	}
 if (isset($balas)) {
     $result = json_encode($balas);

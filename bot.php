@@ -344,15 +344,7 @@ if($message['type']=='text') {
         );
     }
 	if ($command == '/asss') {
-        $balas = array (
-			'type' => 'leave',
-			'timestamp' => 1462629479859,
-			'source' => 
-			array (
-				'type' => 'group',
-				'groupId' => $groupId,
-			),
-			);
+		$response = $bot->leaveGroup($groupId);
     }	
 	
 	}

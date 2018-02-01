@@ -752,16 +752,29 @@ if ($command == '/jam') {
             ) 
         ); 
 }
+if ($command == '/song-unduh') { 
+
+        $result = song($options); 
+        $balas = array( 
+            'replyToken' => $replyToken, 
+            'messages' => array( 
+                array( 
+                    'type' => 'text', 
+                    'text' => $result['unduh'], 
+                ), 
+                array( 
+                    'type' => 'text', 
+                    'text' => 'Silahkan kakak Salin URL diatas lalu Tempel di Browser kakak ^_^', 
+                ) 
+            ) 
+        ); 
+    }
     if ($command == '/song') { 
      
         $result = song($options); 
         $balas = array( 
             'replyToken' => $replyToken, 
             'messages' => array( 
-			    array( 
-                    'type' => 'text', 
-                    'text' => $result['unduh'], 
-                ), 
                 array ( 
                         'type' => 'template', 
                           'altText' => 'Info Musik', 

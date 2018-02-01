@@ -235,7 +235,7 @@ function wib($keyword) {
 	$parsed = array(); 
 	$parsed['time'] = $json['time']['time'];
 	$parsed['date'] = $json['time']['date'];
-    return $result;
+    return $parsed;
 }
 function wit($keyword) {
     $uri = "https://time.siswadi.com/timezone/?address=jayapura";
@@ -246,7 +246,7 @@ function wit($keyword) {
 	$parsed = array(); 
 	$parsed['time'] = $json['time']['time'];
 	$parsed['date'] = $json['time']['date'];
-    return $result;
+    return $parsed;
 }
 function wita($keyword) {
     $uri = "https://time.siswadi.com/timezone/?address=manado";
@@ -257,7 +257,7 @@ function wita($keyword) {
 	$parsed = array(); 
 	$parsed['time'] = $json['time']['time'];
 	$parsed['date'] = $json['time']['date'];
-    return $result;
+    return $parsed;
 }
 
 

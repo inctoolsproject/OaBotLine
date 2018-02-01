@@ -332,29 +332,17 @@ if($message['type']=='text') {
             )
         );
     }	
-	if ($command == '/cuaca') {
-        $result = cuaca($options);
+	if ($command == '/tes') {
         $balas = array(
             'replyToken' => $replyToken,
             'messages' => array(
                 array(
                     'type' => 'text',
-                    'text' => $result
+                    'text' => $groupId
                 )
             )
         );
     }
-		if ($command == '/bye') {
-        $balas = array (
-				'type' => 'leave',
-				'source' => 
-				array (
-					'type' => 'group',
-					'groupId' => $groupId,
-				),
-			)
-        $psn = $client->leaveGroup($groupId);
-    }	
 	
 	}
 if (isset($balas)) {

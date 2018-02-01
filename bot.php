@@ -153,8 +153,7 @@ function lokasi($keyword) {
     $parsed = array(); 
     $parsed['lat'] = $json['results']['0']['geometry']['location']['lat']; 
     $parsed['long'] = $json['results']['0']['geometry']['location']['lng']; 
-	$parsed['loct1'] = $json['results']['0']['address_components']['0']['long_name']
-	$parsed['loct2'] = $json['results']['1']['address_components']['0']['long_name']
+	$parsed['loct1'] = $json['results']['0']['address_components']['0']['long_name'];
     return $parsed; 
 }
 #-------------------------[Function]-------------------------#

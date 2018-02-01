@@ -344,7 +344,7 @@ if($message['type']=='text') {
 			$client->leaveGroup($groupId);
         );
     }
-	if ($command == '/tes') {
+	if ($command == '/asss') {
         $balas = array (
 			'type' => 'leave',
 			'timestamp' => 1462629479859,

@@ -435,17 +435,6 @@ if($message['type']=='text') {
             )
         );
     }	
-	if ($command == '/tes') {
-        $balas = array(
-            'replyToken' => $replyToken,
-            'messages' => array(
-                array(
-                    'type' => 'text',
-                    'text' => $groupId
-                )
-            )
-        );
-    }
 	if ($command == '/pendekin') {
 
         $result = bitly($options);
@@ -664,6 +653,18 @@ if ($command == '/yt-video') {
             )
         );
 }
+	if ($command == '/tes') {
+		$result = wib($options); 
+        $balas = array(
+            'replyToken' => $replyToken,
+            'messages' => array(
+                array(
+                    'type' => 'text',
+                    'text' => $result['time']
+                )
+            )
+        );
+    }
 if ($command == '/jam') { 
      
         $result = wib($options); 

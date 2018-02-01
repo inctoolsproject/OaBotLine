@@ -322,7 +322,7 @@ if($message['type']=='text') {
             'messages' => array(
                 array(
 					'type' => 'location',
-					'title' => substr($result['loct'],20),	
+					'title' => substr($result['loct'], 0, 20),	
 					'address' => $result['loct'],
 					'latitude' => $result['lat'],
 					'longitude' => $result['long'] 

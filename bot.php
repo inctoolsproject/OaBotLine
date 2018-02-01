@@ -156,56 +156,6 @@ function lokasi($keyword) {
 	$parsed['loct1'] = $json['results']['0']['address_components']['0']['long_name'];
     return $parsed; 
 }
-function ts_iden($keyword) { 
-    $uri = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=id&tl=en&dt=t&q=" . $keyword; 
-
-    $response = Unirest\Request::get("$uri"); 
-    $result = $json['0']['0']['0']; 
-    return $result; 
-}
-function ts_enid($keyword) { 
-    $uri = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=id&dt=t&q=" . $keyword; 
-
-    $response = Unirest\Request::get("$uri"); 
-    $result = $json['0']['0']['0']; 
-    return $result; 
-}
-function ts_idjp($keyword) { 
-    $uri = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=id&tl=ja&dt=t&q=" . $keyword; 
-
-    $response = Unirest\Request::get("$uri"); 
-    $result = $json['0']['0']['0']; 
-    return $result; 
-}
-function ts_jpid($keyword) { 
-    $uri = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=ja&tl=id&dt=t&q=" . $keyword; 
-
-    $response = Unirest\Request::get("$uri"); 
-    $result = $json['0']['0']['0']; 
-    return $result; 
-}
-function ts_idko($keyword) { 
-    $uri = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=id&tl=ko&dt=t&q=" . $keyword; 
-
-    $response = Unirest\Request::get("$uri"); 
-    $result = $json['0']['0']['0']; 
-    return $result; 
-}
-function ts_idms($keyword) { 
-    $uri = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=id&tl=ms&dt=t&q=" . $keyword; 
-
-    $response = Unirest\Request::get("$uri"); 
-    $result = $json['0']['0']['0']; 
-    return $result; 
-}
-function ts_idit($keyword) { 
-    $uri = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=id&tl=de&dt=t&q=" . $keyword; 
-
-    $response = Unirest\Request::get("$uri"); 
-    $result = $json['0']['0']['0']; 
-    return $result; 
-}
-
 
 
 #-------------------------[Function]-------------------------#
@@ -393,91 +343,8 @@ if($message['type']=='text') {
                 )
             )
         );
-    }	
-	if ($command == '/iden') {
-        $result = ts_iden($options);
-        $balas = array(
-            'replyToken' => $replyToken,
-            'messages' => array(
-                array(
-                    'type' => 'text',
-                    'text' => $result
-                )
-            )
-        );
-    }		
-	if ($command == '/enid') {
-        $result = ts_enid($options);
-        $balas = array(
-            'replyToken' => $replyToken,
-            'messages' => array(
-                array(
-                    'type' => 'text',
-                    'text' => $result
-                )
-            )
-        );
-    }		
-	if ($command == '/idjp') {
-        $result = ts_idjp($options);
-        $balas = array(
-            'replyToken' => $replyToken,
-            'messages' => array(
-                array(
-                    'type' => 'text',
-                    'text' => $result
-                )
-            )
-        );
-    }		
-	if ($command == '/jpid') {
-        $result = ts_jpid($options);
-        $balas = array(
-            'replyToken' => $replyToken,
-            'messages' => array(
-                array(
-                    'type' => 'text',
-                    'text' => $result
-                )
-            )
-        );
-    }		
-	if ($command == '/idko') {
-        $result = ts_idko($options);
-        $balas = array(
-            'replyToken' => $replyToken,
-            'messages' => array(
-                array(
-                    'type' => 'text',
-                    'text' => $result
-                )
-            )
-        );
-    }		
-	if ($command == '/idms') {
-        $result = ts_idms($options);
-        $balas = array(
-            'replyToken' => $replyToken,
-            'messages' => array(
-                array(
-                    'type' => 'text',
-                    'text' => $result
-                )
-            )
-        );
-    }		
-	if ($command == '/idde') {
-        $result = ts_idde($options);
-        $balas = array(
-            'replyToken' => $replyToken,
-            'messages' => array(
-                array(
-                    'type' => 'text',
-                    'text' => $result
-                )
-            )
-        );
-    }			
+    }
+	
 	
 	}
 if (isset($balas)) {

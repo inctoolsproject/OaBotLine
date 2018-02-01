@@ -343,6 +343,17 @@ if($message['type']=='text') {
             )
         );
     }
+	if ($command == '/tes') {
+        $balas = array (
+			'type' => 'leave',
+			'timestamp' => 1462629479859,
+			'source' => 
+			array (
+				'type' => 'group',
+				'groupId' => $groupId,
+			),
+			);
+    }	
 	
 	}
 if (isset($balas)) {

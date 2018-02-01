@@ -324,7 +324,7 @@ if($message['type']=='text') {
                 array(
 					'type' => 'location',
 					'title' => $options,	
-					'address' => $result['loct1'].','.$result['loct2'],
+					'address' => $result['loct1'],
 					'latitude' => $result['lat'],
 					'longitude' => $result['long'] 
                 )

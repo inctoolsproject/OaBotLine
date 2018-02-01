@@ -341,7 +341,6 @@ if($message['type']=='text') {
                     'text' => $groupId
                 )
             )
-			$client->leaveGroup($groupId);
         );
     }
 	if ($command == '/asss') {

@@ -682,7 +682,7 @@ if ($command == '/jam') {
                     array ( 
                       0 =>  
                       array ( 
-                        'thumbnailImageUrl' => 'https://nationalzoo.si.edu/sites/default/files/styles/slide_1400x700/public/support/adopt/giantpanda-03.jpg', 
+                        'thumbnailImageUrl' => 'https://image.prntscr.com/image/K0b2P-S6RO6fzFqOVwkgtw.jpg', 
                         'imageBackgroundColor' => '#FFFFFF', 
                         'title' => 'WIB', 
                         'text' => 'Jam Indonesia', 
@@ -704,7 +704,7 @@ if ($command == '/jam') {
                       ), 
                       1 =>  
                       array ( 
-                        'thumbnailImageUrl' => 'https://nationalzoo.si.edu/sites/default/files/styles/slide_1400x700/public/support/adopt/giantpanda-03.jpg', 
+                        'thumbnailImageUrl' => 'https://image.prntscr.com/image/K0b2P-S6RO6fzFqOVwkgtw.jpg', 
                         'imageBackgroundColor' => '#000000', 
                         'title' => 'WIT', 
                         'text' => 'Jam Indonesia', 
@@ -726,7 +726,7 @@ if ($command == '/jam') {
                       ), 
 					  2 =>  
                       array ( 
-                        'thumbnailImageUrl' => 'https://nationalzoo.si.edu/sites/default/files/styles/slide_1400x700/public/support/adopt/giantpanda-03.jpg', 
+                        'thumbnailImageUrl' => 'https://image.prntscr.com/image/K0b2P-S6RO6fzFqOVwkgtw.jpg', 
                         'imageBackgroundColor' => '#000000', 
                         'title' => 'WITA', 
                         'text' => 'Jam Indonesia', 
@@ -781,7 +781,7 @@ if ($command == '/song-unduh') {
                           'template' =>  
                           array ( 
                             'type' => 'buttons', 
-                            'thumbnailImageUrl' => 'https://nationalzoo.si.edu/sites/default/files/styles/slide_1400x700/public/support/adopt/giantpanda-03.jpg', 
+                            'thumbnailImageUrl' => 'https://image.prntscr.com/image/K0b2P-S6RO6fzFqOVwkgtw.jpg', 
                             'imageAspectRatio' => 'rectangle', 
                             'imageSize' => 'cover', 
                             'imageBackgroundColor' => '#FFFFFF', 
@@ -818,7 +818,7 @@ if ($command == '/song-unduh') {
                           'template' =>  
                           array ( 
                             'type' => 'buttons', 
-                            'thumbnailImageUrl' => 'https://nationalzoo.si.edu/sites/default/files/styles/slide_1400x700/public/support/adopt/giantpanda-03.jpg', 
+                            'thumbnailImageUrl' => 'https://image.prntscr.com/image/K0b2P-S6RO6fzFqOVwkgtw.jpg', 
                             'imageAspectRatio' => 'rectangle', 
                             'imageSize' => 'cover', 
                             'imageBackgroundColor' => '#FFFFFF', 

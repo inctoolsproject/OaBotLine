@@ -37,21 +37,29 @@ if (count($pesan_datang) > 2) {
 }
 
 #-------------------------[Function]-------------------------#
-function cuaca($keyword) {
-    $uri = "http://api.openweathermap.org/data/2.5/weather?q=" . $keyword . ",ID&units=metric&appid=e172c2f3a3c620591582ab5242e0e6c4";
+function cuaca($keyword) { 
+    $uri = "http://api.openweathermap.org/data/2.5/weather?q=" . $keyword . ",ID&units=metric&appid=e172c2f3a3c620591582ab5242e0e6c4"; 
 
-    $response = Unirest\Request::get("$uri");
+    $response = Unirest\Request::get("$uri"); 
 
-    $json = json_decode($response->raw_body, true);
-    $result = "Ramalan Cuaca ";
-	$result .= $json['name'];
-	$result .= " Dan Sekitarnya";
-	$result .= "\n\nCuaca : ";
-	$result .= $json['weather']['0']['main'];
-	$result .= "\nDeskripsi : ";
-	$result .= $json['weather']['0']['description'];
-    return $result;
-}
+    $json = json_decode($response->raw_body, true); 
+    $result = "Tempat: "; //----------------------------- 
+    $result .= $json['name']; //tempat 
+    $result .= "\nCuaca: "; //----------------------------- 
+    $result .= $json['weather']['0']['main']; //cuaca 
+    $result .= "\nDeskripsi: "; //----------------------------- 
+    $result .= $json['weather']['0']['description']; //deskripsi 
+    $result .= "\nSuhu Cuaca: "; //----------------------------- 
+    $result .= $json['main']['temp']; //suhu 
+    $result .= " C\nKelembapan: "; //----------------------------- 
+    $result .= $json['main']['humidity']; //kelembapan 
+    $result .= "%\nTekanan Udara: "; //----------------------------- 
+    $result .= $json['main']['grnd_level']; //udara 
+    $result .= " HPa\nKecepatan Angin: "; //----------------------------- 
+    $result .= $json['wind']['speed']; //angin 
+    $result .= " m/s\n"; //----------------------------- 
+    return $result; 
+} 
 function shalat($keyword) {
     $uri = "https://time.siswadi.com/pray/" . $keyword;
 

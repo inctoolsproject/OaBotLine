@@ -838,37 +838,6 @@ if ($command == '/song-unduh') {
             ) 
         ); 
     }
-    if ($command == '/creator') { 
-     
-        $balas = array( 
-            'replyToken' => $replyToken, 
-            'messages' => array( 
-                array ( 
-                        'type' => 'template', 
-                          'altText' => 'About Creator', 
-                          'template' =>  
-                          array ( 
-                            'type' => 'buttons', 
-                            'thumbnailImageUrl' => 'https://nationalzoo.si.edu/sites/default/files/styles/slide_1400x700/public/support/adopt/giantpanda-03.jpg', 
-                            'imageAspectRatio' => 'rectangle', 
-                            'imageSize' => 'cover', 
-                            'imageBackgroundColor' => '#FFFFFF', 
-                            'title' => 'About Creator', 
-                            'text' => 'Panda Bot x Yuuko-chan', 
-                            'actions' =>  
-                            array ( 
-                              0 =>  
-                              array ( 
-                                'type' => 'uri', 
-                                'label' => 'Contact', 
-                                'uri' => 'https://instagram.com/f.ahmad480', 
-                              ), 
-                            ), 
-                          ), 
-                        ) 
-            ) 
-        ); 
-    }
 	}
 if (isset($balas)) {
     $result = json_encode($balas);

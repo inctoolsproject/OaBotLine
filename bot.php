@@ -822,8 +822,8 @@ if ($command == '/song-unduh') {
                             'imageAspectRatio' => 'rectangle', 
                             'imageSize' => 'cover', 
                             'imageBackgroundColor' => '#FFFFFF', 
-                            'title' => 'About Owner', 
-                            'text' => 'Panda Bot', 
+                            'title' => 'Kevin Juliano', 
+                            'text' => 'Creator Panda', 
                             'actions' =>  
                             array ( 
                               0 =>  

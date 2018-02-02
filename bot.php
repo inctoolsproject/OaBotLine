@@ -276,7 +276,7 @@ function song($keyword) {
 
 //show menu, saat join dan command /menu
 if ($type == 'join' || $command == '/keyword') {
-    $text = "Halo Kak ^_^\nAku Bot Prediksi Cuaca, Kamu bisa mengetahui prediksi cuaca di daerah kamu sesuai dengan sumber BMKG";
+    $text = "Keyword Panda Bot\n\n/shalat\n/cuaca\n/youtube\n/song\n/say\n/ig\n/ig-vid\n/ig-pict\n/ig-dp\n/apakah\n/quote\n/pendekin\n/jam";
     $balas = array(
         'replyToken' => $replyToken,
         'messages' => array(

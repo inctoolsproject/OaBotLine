@@ -515,7 +515,7 @@ if($message['type']=='text') {
 				          array (
 				            'type' => 'message', 
 				            'label' => 'Stream Video',
-				            'text' => '/yt-video '.$result['a1'],
+				            'text' => 'Lihat video '.$result['a1'],
 				          ),
 				          1 => 
 				          array (
@@ -536,7 +536,7 @@ if($message['type']=='text') {
 				          array (
 				            'type' => 'message', 
 				            'label' => 'Stream Video',
-				            'text' => '/yt-video '.$result['a2'],
+				            'text' => 'Lihat video '.$result['a2'],
 				          ),
 				          1 => 
 				          array (
@@ -557,7 +557,7 @@ if($message['type']=='text') {
 				          array (
 				            'type' => 'message', 
 				            'label' => 'Stream Video',
-				            'text' => '/yt-video '.$result['a3'],
+				            'text' => 'Lihat video '.$result['a3'],
 				          ),
 				          1 => 
 				          array (
@@ -578,7 +578,7 @@ if($message['type']=='text') {
 				          array (
 				            'type' => 'message', 
 				            'label' => 'Stream Video',
-				            'text' => '/yt-video '.$result['a4'],
+				            'text' => 'Lihat video '.$result['a4'],
 				          ),
 				          1 => 
 				          array (
@@ -599,7 +599,7 @@ if($message['type']=='text') {
 				          array (
 				            'type' => 'message', 
 				            'label' => 'Stream Video',
-				            'text' => '/yt-video '.$result['a5'],
+				            'text' => 'Lihat video '.$result['a5'],
 				          ),
 				          1 => 
 				          array (
@@ -620,7 +620,7 @@ if($message['type']=='text') {
 				          array (
 				            'type' => 'message', 
 				            'label' => 'Stream Video',
-				            'text' => '/yt-video '.$result['a6'],
+				            'text' => 'Lihat video '.$result['a6'],
 				          ),
 				          1 => 
 				          array (
@@ -641,7 +641,7 @@ if($message['type']=='text') {
 				          array (
 				            'type' => 'message', 
 				            'label' => 'Stream Video',
-				            'text' => '/yt-video '.$result['a7'],
+				            'text' => 'Lihat video '.$result['a7'],
 				          ),
 				          1 => 
 				          array (
@@ -662,7 +662,7 @@ if($message['type']=='text') {
 				          array (
 				            'type' => 'message', 
 				            'label' => 'Stream Video',
-				            'text' => '/yt-video '.$result['a8'],
+				            'text' => 'Lihat video '.$result['a8'],
 				          ),
 				          1 => 
 				          array (
@@ -680,7 +680,7 @@ if($message['type']=='text') {
             )
         );
 }
-if ($command == '/yt-video') {
+if ($command == 'Lihat video') {
 
         $result = yt($options);
 		$results = yt_pict($options);

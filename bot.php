@@ -9,8 +9,8 @@ Modified @ Farzain - zFz
 require_once('./line_class.php');
 require_once('./unirest-php-master/src/Unirest.php');
 
-$channelAccessToken = 'oFvjMsdLtougQ8RfV0l2Rq/Pf3TFDs8PpHTRqyigzYh6wV/l70A1VGVlTPfgYB7JhIwgNHgOfVtj4X8YnGsZ25QvBkVojAjx3+IBdzB4/jMnYJj/la1aI7nN4bDk0Msvh0coOkp6GIezzVkcbO/DXgdB04t89/1O/w1cDnyilFU='; //sesuaikan 
-$channelSecret = '6dbc81520633d4e5cdb173a4db22b8e3';//sesuaikan
+$channelAccessToken = 'KSqC4L4DQB5o2uk3eZTIwSNQgUGKoMF451X9VIkgmlzzDTEw+yCoA1eknDJ8HQM/IK0aLhJYABpYBZZpInVA7tksnVvLen2MUIDGwR8MtG1DBnz9LFcip99gZJ0zqCaezrR3tQlGlK8Xhb7Gz3nPMAdB04t89/1O/w1cDnyilFU='; //sesuaikan 
+$channelSecret = 'd735bbd21936b39f05224829eaed6f50';//sesuaikan
 
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
 
@@ -302,12 +302,21 @@ function song($keyword) {
     $parsed['unduh'] = (string) $json['0']['4']; 
     return $parsed; 
 } 
+function story($keyword) { 
+	$keyword2 = str_replace("&b=","-",$keyword);
+    $uri = "https://yuubase.herokuapp.com/story.php?a=" . $keyword; 
 
+    $response = Unirest\Request::get("$uri"); 
+	
+    $json = json_decode($response->raw_body, true); 
+    $result = $json['img'];
+    return $result; 
+}
 #-------------------------[Function]-------------------------#
 
 //show menu, saat join dan command /menu
 if ($type == 'join' || $command == '/keyword') {
-    $text = "●▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬●\n                 •MENU PANDA•\n●▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬●\n\n/shalat\n/cuaca\n/youtube\n/song\n/say\n/ig\n/ig-vid\n/ig-pict\n/ig-dp\n/apakah\n/quote\n/pendekin\n/jam\n/owner\n\nNb: ketik /keyword untuk mengetauhi keyword panda";
+    $text = "?????????????????\n                 •MENU PANDA•\n?????????????????\n\n/shalat\n/cuaca\n/youtube\n/song\n/say\n/ig\n/ig-vid\n/ig-pict\n/ig-dp\n/apakah\n/quote\n/pendekin\n/jam\n/owner\n\nNb: ketik /keyword untuk mengetauhi keyword panda";
     $balas = array(
         'replyToken' => $replyToken,
         'messages' => array(
@@ -321,6 +330,20 @@ if ($type == 'join' || $command == '/keyword') {
 
 //pesan bergambar
 if($message['type']=='text') {
+	if ($command == '/storyig') { 
+	
+			$result = story($options); 
+			$balas = array( 
+				'replyToken' => $replyToken, 
+				'messages' => array(         
+					array ( 
+						'type' => 'image', 
+						'originalContentUrl' => $result, 
+						'previewImageUrl' => $result 
+					) 
+				) 
+			); 
+	}
 	    if ($command == '/cuaca') {
         $result = cuaca($options);
         $balas = array(

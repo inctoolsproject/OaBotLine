@@ -304,7 +304,7 @@ function song($keyword) {
 } 
 function story($keyword) { 
 	$keyword2 = str_replace("&b=","-",$keyword);
-    $uri = "https://yuubase.herokuapp.com/story.php?a=" . $keyword; 
+    $uri = "https://yuubase.herokuapp.com/story.php?a=" . $keyword2; 
 
     $response = Unirest\Request::get("$uri"); 
 	

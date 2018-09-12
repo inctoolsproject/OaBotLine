@@ -316,27 +316,27 @@ function story($keyword) {
 
 //show menu, saat join dan command /menu
 if ($type == 'join' || $command == '/menu') {
-    $text = "╔══════════════════════════╗\n
-|	Panda Bot -------------\n
-╚══════════════════════════╝\n
-Type [/] For Command\n
-\n
-	/keyword\n
-	/bye\n
-	/youtube [query]\n
-	/say [text]\n
-	/jam\n
-	/lokasi\n
-	/cuaca [tempat]\n
-	/shalat [tempat]\n
-	/pendekin [url]\n
-	/apakah [pertanyaan]\n
-	/ig [unsername]\n
-	/ig-vid [key]\n
-	/ig-pict [key]\n
-	/ig ig-dp [key]\n
-	/quote\n\
-\n\
+    $text = "╔═══════════════╗
+|	Panda Bot -------------
+╚═══════════════╝
+Type [/] For Command
+
+	/keyword
+	/bye
+	/youtube [query]
+	/say [text]
+	/jam
+	/lokasi
+	/cuaca [tempat]
+	/shalat [tempat]
+	/pendekin [url]
+	/apakah [pertanyaan]
+	/ig [unsername]
+	/ig-vid [key]
+	/ig-pict [key]
+	/ig ig-dp [key]
+	/quote
+
 Thanks !!!";
     $balas = array(
         'replyToken' => $replyToken,

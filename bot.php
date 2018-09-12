@@ -757,7 +757,7 @@ if ($command == '/jam') {
                     array ( 
                       0 =>  
                       array ( 
-                        'thumbnailImageUrl' => 'https://image.prntscr.com/image/K0b2P-S6RO6fzFqOVwkgtw.jpg', 
+                        'thumbnailImageUrl' => 'https://www.nationalwomeninblues.com/wp-content/uploads/2015/10/WiBLogo-copy-61.png', 
                         'imageBackgroundColor' => '#FFFFFF', 
                         'title' => 'WIB', 
                         'text' => 'Jam Indonesia', 
@@ -779,7 +779,7 @@ if ($command == '/jam') {
                       ), 
                       1 =>  
                       array ( 
-                        'thumbnailImageUrl' => 'https://image.prntscr.com/image/K0b2P-S6RO6fzFqOVwkgtw.jpg', 
+                        'thumbnailImageUrl' => 'http://www.weeklyline.net/wp-content/uploads/2018/05/wittttt-640x330.jpg', 
                         'imageBackgroundColor' => '#000000', 
                         'title' => 'WIT', 
                         'text' => 'Jam Indonesia', 
@@ -801,7 +801,7 @@ if ($command == '/jam') {
                       ), 
 					  2 =>  
                       array ( 
-                        'thumbnailImageUrl' => 'https://image.prntscr.com/image/K0b2P-S6RO6fzFqOVwkgtw.jpg', 
+                        'thumbnailImageUrl' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQuC3NZufTlA1ZGJHLgNeRXN56WGHA42VdgoXlENNv5aJhhMTo', 
                         'imageBackgroundColor' => '#000000', 
                         'title' => 'WITA', 
                         'text' => 'Jam Indonesia', 

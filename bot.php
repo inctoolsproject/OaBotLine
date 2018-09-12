@@ -316,7 +316,28 @@ function story($keyword) {
 
 //show menu, saat join dan command /menu
 if ($type == 'join' || $command == '/keyword') {
-    $text = "?????????????????\n                 •MENU PANDA•\n?????????????????\n\n/shalat\n/cuaca\n/youtube\n/song\n/say\n/ig\n/ig-vid\n/ig-pict\n/ig-dp\n/apakah\n/quote\n/pendekin\n/jam\n/owner\n\nNb: ketik /keyword untuk mengetauhi keyword panda";
+    $text = "╔══════════════════════════╗\n\
+|	Panda Bot -------------\n\
+╚══════════════════════════╝\n\
+Type [/] For Command\n\
+\n\
+	/keyword\n\
+	/bye\n\
+	/youtube [query]\n\
+	/say [text]\n\
+	/jam\n\
+	/lokasi\n\
+	/cuaca [tempat]\n\
+	/shalat [tempat]\n\
+	/pendekin [url]\n\
+	/apakah [pertanyaan]\n\
+	/ig [unsername]\n\
+	/ig-vid [key]\n\
+	/ig-pict [key]\n\
+	/ig ig-dp [key]\n\
+	/quote\n\
+\n\
+Thanks !!!";
     $balas = array(
         'replyToken' => $replyToken,
         'messages' => array(
@@ -876,7 +897,7 @@ if ($command == '/song-unduh') {
                             'imageAspectRatio' => 'rectangle', 
                             'imageSize' => 'cover', 
                             'imageBackgroundColor' => '#FFFFFF', 
-                            'title' => 'Kevin Juliano', 
+                            'title' => 'Muhammad Raihan Permadi', 
                             'text' => 'Creator Panda', 
                             'actions' =>  
                             array ( 
@@ -884,7 +905,7 @@ if ($command == '/song-unduh') {
                               array ( 
                                 'type' => 'uri', 
                                 'label' => 'Contact', 
-                                'uri' => 'https://line.me/ti/p/~kevin15072003juli', 
+                                'uri' => 'https://line.me/ti/p/~rhnprmd', 
                               ), 
                             ), 
                           ), 

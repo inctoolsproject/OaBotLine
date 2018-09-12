@@ -315,26 +315,26 @@ function story($keyword) {
 #-------------------------[Function]-------------------------#
 
 //show menu, saat join dan command /menu
-if ($type == 'join' || $command == '/keyword') {
-    $text = "╔══════════════════════════╗\n\
-|	Panda Bot -------------\n\
-╚══════════════════════════╝\n\
-Type [/] For Command\n\
-\n\
-	/keyword\n\
-	/bye\n\
-	/youtube [query]\n\
-	/say [text]\n\
-	/jam\n\
-	/lokasi\n\
-	/cuaca [tempat]\n\
-	/shalat [tempat]\n\
-	/pendekin [url]\n\
-	/apakah [pertanyaan]\n\
-	/ig [unsername]\n\
-	/ig-vid [key]\n\
-	/ig-pict [key]\n\
-	/ig ig-dp [key]\n\
+if ($type == 'join' || $command == '/menu') {
+    $text = "╔══════════════════════════╗\n
+|	Panda Bot -------------\n
+╚══════════════════════════╝\n
+Type [/] For Command\n
+\n
+	/keyword\n
+	/bye\n
+	/youtube [query]\n
+	/say [text]\n
+	/jam\n
+	/lokasi\n
+	/cuaca [tempat]\n
+	/shalat [tempat]\n
+	/pendekin [url]\n
+	/apakah [pertanyaan]\n
+	/ig [unsername]\n
+	/ig-vid [key]\n
+	/ig-pict [key]\n
+	/ig ig-dp [key]\n
 	/quote\n\
 \n\
 Thanks !!!";

@@ -800,7 +800,7 @@ if ($command == '/jam') {
                     array ( 
                       0 =>  
                       array ( 
-                        'thumbnailImageUrl' => 'https://image.prntscr.com/image/K0b2P-S6RO6fzFqOVwkgtw.jpg', 
+                        'thumbnailImageUrl' => 'https://preview.ibb.co/gXGfLU/20180913_194713.jpg', 
                         'imageBackgroundColor' => '#FFFFFF', 
                         'title' => 'WIB', 
                         'text' => 'Jam Indonesia', 

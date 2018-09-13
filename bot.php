@@ -822,7 +822,7 @@ if ($command == '/jam') {
                       ), 
                       1 =>  
                       array ( 
-                        'thumbnailImageUrl' => 'https://image.prntscr.com/image/K0b2P-S6RO6fzFqOVwkgtw.jpg', 
+                        'thumbnailImageUrl' => 'https://preview.ibb.co/nxaPfU/20180913_194725.jpg', 
                         'imageBackgroundColor' => '#000000', 
                         'title' => 'WIT', 
                         'text' => 'Jam Indonesia', 
@@ -844,7 +844,7 @@ if ($command == '/jam') {
                       ), 
 					  2 =>  
                       array ( 
-                        'thumbnailImageUrl' => 'https://image.prntscr.com/image/K0b2P-S6RO6fzFqOVwkgtw.jpg', 
+                        'thumbnailImageUrl' => 'https://preview.ibb.co/cPdc0U/20180913_194744.jpg', 
                         'imageBackgroundColor' => '#000000', 
                         'title' => 'WITA', 
                         'text' => 'Jam Indonesia', 

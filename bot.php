@@ -147,6 +147,23 @@ function apakah($keyword){
     $jawab = $list_jwb[$jaws];
     return($jawab);
 }
+function apakah2($keyword){
+    $list_jwb = array(
+		'Ya',
+		'Tidak',
+		'Bisa jadi',
+		'Mungkin',
+		'Tentu tidak',
+		'Coba tanya lagi'
+		);
+    $jaws = array_rand($list_jwb);
+    $jawab = $list_jwb[$jaws];
+    $uri = "https://translate.google.com/translate_tts?ie=UTF-8&tl=id-ID&client=tw-ob&q=" . $jawab; 
+
+    $response = Unirest\Request::get("$uri"); 
+    $result = $uri; 
+    return $result; 
+}
 function tts($keyword) { 
     $uri = "https://translate.google.com/translate_tts?ie=UTF-8&tl=id-ID&client=tw-ob&q=" . $keyword; 
 
@@ -315,9 +332,9 @@ function story($keyword) {
 #-------------------------[Function]-------------------------#
 
 //show menu, saat join dan command /menu
-if ($type == 'join' || $command == '/menu') {
+if ($command == '/menu') {
     $text = "╔═══════════════╗
-|	Panda Bot -------------
+------Panda Bot ------
 ╚═══════════════╝
 Type [/] For Command
 
@@ -330,7 +347,8 @@ Type [/] For Command
 	/cuaca [tempat]
 	/shalat [tempat]
 	/pendekin [url]
-	/apakah [pertanyaan]
+	/apakah [pertanyaan] [text]
+	/apakah2 [pertanyaan] [voice]
 	/ig [unsername]
 	/ig-vid [key]
 	/ig-pict [key]
@@ -348,7 +366,21 @@ Thanks !!!";
         )
     );
 }
-
+if ($type == 'join') {
+    $text = "Terimakasih Telah invite bot ini ke group kalian
+    Jika ada saran dan masukan kalian tinggal chat owner kami
+    Ketik /owner untuk mendapatkan contact owner, Silahkan Ketik /menu untuk melihat
+    Menu Bot kami :)";
+    $balas = array(
+        'replyToken' => $replyToken,
+        'messages' => array(
+            array(
+                'type' => 'text',
+                'text' => $text
+            )
+        )
+    );
+}
 //pesan bergambar
 if($message['type']=='text') {
 	if ($command == '/storyig') { 
@@ -483,6 +515,20 @@ if($message['type']=='text') {
 	if ($command == '/say') {
 
         $result = tts($options);
+        $balas = array(
+            'replyToken' => $replyToken,
+            'messages' => array(
+				array (
+				'type' => 'audio',
+				'originalContentUrl' => $result,
+				'duration' => 10000,
+				)
+            )
+        );
+}
+	if ($command == '/apakah2') {
+
+        $result = apakah2($options);
         $balas = array(
             'replyToken' => $replyToken,
             'messages' => array(

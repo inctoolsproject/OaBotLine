@@ -334,7 +334,7 @@ function story($keyword) {
 //show menu, saat join dan command /menu
 if ($command == '/menu') {
     $text = "╔═══════════════╗
-------Panda Bot ------
+Panda Bot
 ╚═══════════════╝
 Type [/] For Command
 
@@ -367,10 +367,7 @@ Thanks !!!";
     );
 }
 if ($type == 'join') {
-    $text = "Terimakasih Telah invite bot ini ke group kalian
-    Jika ada saran dan masukan kalian tinggal chat owner kami
-    Ketik /owner untuk mendapatkan contact owner, Silahkan Ketik /menu untuk melihat
-    Menu Bot kami :)";
+    $text = "Terimakasih Telah invite bot ini ke group kalian Jika ada saran dan masukan kalian tinggal chat owner kami, Ketik /owner untuk mendapatkan contact owner, Silahkan Ketik /menu untuk melihat Menu Bot kami :)";
     $balas = array(
         'replyToken' => $replyToken,
         'messages' => array(
@@ -939,7 +936,7 @@ if ($command == '/song-unduh') {
                           'template' =>  
                           array ( 
                             'type' => 'buttons', 
-                            'thumbnailImageUrl' => 'https://image.prntscr.com/image/K0b2P-S6RO6fzFqOVwkgtw.jpg', 
+                            'thumbnailImageUrl' => 'https://i2.wp.com/scrum.or.id/wp-content/uploads/2018/08/713378-636576595892468047-16x9.jpg', 
                             'imageAspectRatio' => 'rectangle', 
                             'imageSize' => 'cover', 
                             'imageBackgroundColor' => '#FFFFFF', 

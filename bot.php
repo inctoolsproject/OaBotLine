@@ -1244,7 +1244,7 @@ if($message['type']=='text') {
             'messages' => array( 
                 array ( 
                         'type' => 'template', 
-                          'altText' => 'About Owner', 
+                          'altText' => 'About Owner BedBotdzs', 
                           'template' =>  
                           array ( 
                             'type' => 'buttons', 
@@ -1281,12 +1281,12 @@ if($message['type']=='text') {
                           'template' =>  
                           array ( 
                             'type' => 'buttons', 
-                            'thumbnailImageUrl' => '.$profil->pictureUrl.', 
+                            'thumbnailImageUrl' => $profil->pictureUrl, 
                             'imageAspectRatio' => 'rectangle', 
                             'imageSize' => 'cover', 
                             'imageBackgroundColor' => '#FFFFFF', 
-                            'title' => '.$profil->displayName.', 
-                            'text' => '.$profil->statusMessage.', 
+                            'title' => $profil->displayName, 
+                            'text' => $profil->statusMessage, 
                             'actions' =>  
                             array ( 
                               0 =>  

@@ -1277,7 +1277,7 @@ if($message['type']=='text') {
             'messages' => array( 
                 array ( 
                         'type' => 'template', 
-                          'altText' => 'About Owner', 
+                          'altText' => 'Profile', 
                           'template' =>  
                           array ( 
                             'type' => 'buttons', 
@@ -1286,7 +1286,7 @@ if($message['type']=='text') {
                             'imageSize' => 'cover', 
                             'imageBackgroundColor' => '#FFFFFF', 
                             'title' => $profil->displayName, 
-                            'text' => $profil->statusMessage, 
+                            'text' => 'Edit Profile', 
                             'actions' =>  
                             array ( 
                               0 =>  

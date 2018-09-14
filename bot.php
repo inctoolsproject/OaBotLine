@@ -629,9 +629,8 @@ function zodiak($keyword) {
 }
 #-------------------------[Function]-------------------------#
 //show menu, saat join dan command,menu
-if ($type == 'join' || $command == 'Help') {
-    $text = "Makasih dh invite aku ke grup kak!! Ketik Help untuk gunain aku\n";
-    $text .= "Keyword GalaxySMP ~~~\n";
+if ($command == 'Help') {
+    $text .= "Keyword BedBotdzs ~~~\n";
     $text .= "> /anime-syn [text]\n";
     $text .= "> /anime [text]\n";
     $text .= "> /manga-syn [text]\n";
@@ -655,6 +654,21 @@ if ($type == 'join' || $command == 'Help') {
     $text .= "> /creator\n";
     $text .= "> /about\n";
     $text .= "> /bantuan\n";
+    $balas = array(
+        'replyToken' => $replyToken,
+        'messages' => array(
+            array(
+                'type' => 'text',
+                'text' => $text
+            )
+        )
+    );
+}
+if ($type == 'join') {
+    $text = "Terimakasih Telah invite bot ini ke group kalian
+    Jika ada saran dan masukan kalian tinggal chat owner kami
+    Ketik /owner untuk mendapatkan contact owner, Silahkan Ketik /menu untuk melihat
+    Menu Bot kami :)";
     $balas = array(
         'replyToken' => $replyToken,
         'messages' => array(
@@ -1223,6 +1237,39 @@ if($message['type']=='text') {
 }
 //pesan bergambar
 if($message['type']=='text') {
+		if ($command == '/owner') { 
+     
+        $balas = array( 
+            'replyToken' => $replyToken, 
+            'messages' => array( 
+                array ( 
+                        'type' => 'template', 
+                          'altText' => 'About Owner', 
+                          'template' =>  
+                          array ( 
+                            'type' => 'buttons', 
+                            'thumbnailImageUrl' => 'https://image.prntscr.com/image/K0b2P-S6RO6fzFqOVwkgtw.jpg', 
+                            'imageAspectRatio' => 'rectangle', 
+                            'imageSize' => 'cover', 
+                            'imageBackgroundColor' => '#FFFFFF', 
+                            'title' => 'Muhammad Raihan Permadi', 
+                            'text' => 'Creator Panda', 
+                            'actions' =>  
+                            array ( 
+                              0 =>  
+                              array ( 
+                                'type' => 'uri', 
+                                'label' => 'Contact', 
+                                'uri' => 'https://line.me/ti/p/~rhnprmd', 
+                              ), 
+                            ), 
+                          ), 
+                        ) 
+            ) 
+        ); 
+    }
+}
+if($message['type']=='text') {
 	    if ($command == '/music') {
 
         $result = music($options);
@@ -1312,7 +1359,7 @@ if($message['type']=='text') {
                 )
             )
         );
-    } else if ($command == '/bantuan') {
+    } else if ($command == '/menu') {
 
 	        $balas = array(
 							'replyToken' => $replyToken,
@@ -1522,14 +1569,14 @@ if($message['type']=='text') {
 										          1 => 
 										          array (
 													'type' => 'postback',
-													'label' => 'About',
+													'label' => 'Owner',
 													'data' => 'action=add&itemid=111',
-													'text' => 'Ketik /about'
+													'text' => '/owner'
 										          ),
 										          2 => 
 										          array (
 													'type' => 'postback',
-													'label' => 'Creator',
+													'label' => 'Transelate',
 													'data' => 'action=add&itemid=111',
 													'text' => 'Ketik /translate'
 										          ),

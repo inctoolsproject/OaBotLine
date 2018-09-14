@@ -1270,6 +1270,39 @@ if($message['type']=='text') {
     }
 }
 if($message['type']=='text') {
+		if ($command == '/infome') { 
+     
+        $balas = array( 
+            'replyToken' => $replyToken, 
+            'messages' => array( 
+                array ( 
+                        'type' => 'template', 
+                          'altText' => 'About Owner', 
+                          'template' =>  
+                          array ( 
+                            'type' => 'buttons', 
+                            'thumbnailImageUrl' => '.$profil->pictureUrl.', 
+                            'imageAspectRatio' => 'rectangle', 
+                            'imageSize' => 'cover', 
+                            'imageBackgroundColor' => '#FFFFFF', 
+                            'title' => '.$profil->displayName.', 
+                            'text' => '.$profil->statusMessage.', 
+                            'actions' =>  
+                            array ( 
+                              0 =>  
+                              array ( 
+                                'type' => 'uri', 
+                                'label' => 'Edit', 
+                                'uri' => 'line://nv/profile', 
+                              ), 
+                            ), 
+                          ), 
+                        ) 
+            ) 
+        ); 
+    }
+}
+if($message['type']=='text') {
 	    if ($command == '/music') {
 
         $result = music($options);

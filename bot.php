@@ -628,9 +628,10 @@ function zodiak($keyword) {
     return $result;
 }
 #-------------------------[Function]-------------------------#
-//show menu, saat join dan command /menu
-if ($command == '/menu') {
-    $text .= "Keyword BedBodtzs ~~~\n";
+//show menu, saat join dan command,menu
+if ($type == 'join' || $command == 'Help') {
+    $text = "Makasih dh invite aku ke grup kak!! Ketik Help untuk gunain aku\n";
+    $text .= "Keyword GalaxySMP ~~~\n";
     $text .= "> /anime-syn [text]\n";
     $text .= "> /anime [text]\n";
     $text .= "> /manga-syn [text]\n";
@@ -651,24 +652,9 @@ if ($command == '/menu') {
     $text .= "> /qiblat [namakota]\n";
     $text .= "> /playstore [namaapk]\n";
     $text .= "> /myinfo\n";
-    $text .= "> /owner\n";
+    $text .= "> /creator\n";
     $text .= "> /about\n";
     $text .= "> /bantuan\n";
-    $balas = array(
-        'replyToken' => $replyToken,
-        'messages' => array(
-            array(
-                'type' => 'text',
-                'text' => $text
-            )
-        )
-    );
-}
-if ($type == 'join') {
-    $text = "Terimakasih Telah invite bot ini ke group kalian
-    Jika ada saran dan masukan kalian tinggal chat owner kami
-    Ketik /owner untuk mendapatkan contact owner, Silahkan Ketik /bantuan untuk melihat
-    Menu Bot kami :)";
     $balas = array(
         'replyToken' => $replyToken,
         'messages' => array(
@@ -710,7 +696,6 @@ Status: '.$profil->statusMessage.'
 
 Picture: '.$profil->pictureUrl.'
 
-
 ====[InfoProfile]===='
 									)
 							)
@@ -718,102 +703,6 @@ Picture: '.$profil->pictureUrl.'
 				
 	}
 }
-if ($command == '/infome') { 
-     
-        $balas = array( 
-            'replyToken' => $replyToken, 
-            'messages' => array( 
-                array ( 
-                        'type' => 'template', 
-                          'altText' => 'About Owner', 
-                          'template' =>  
-                          array ( 
-                            'type' => 'buttons', 
-                            'thumbnailImageUrl' => .$profil->pictureUrl., 
-                            'imageAspectRatio' => 'rectangle', 
-                            'imageSize' => 'cover', 
-                            'imageBackgroundColor' => '#FFFFFF', 
-                            'title' => .$profil->displayName., 
-                            'text' => .$profil->statusMessage., 
-                            'actions' =>  
-                            array ( 
-                              0 =>  
-                              array ( 
-                                'type' => 'uri', 
-                                'label' => 'Edit', 
-                                'uri' => 'line://nv/profile',
-                              ), 
-                            ), 
-                          ), 
-                        ) 
-            ) 
-        ); 
-    }
-	}
-if ($command == '/infome2') { 
-     
-        $balas = array( 
-            'replyToken' => $replyToken, 
-            'messages' => array( 
-                array ( 
-                        'type' => 'template', 
-                          'altText' => 'About Owner', 
-                          'template' =>  
-                          array ( 
-                            'type' => 'buttons', 
-                            'thumbnailImageUrl' => '.$profil->pictureUrl.', 
-                            'imageAspectRatio' => 'rectangle', 
-                            'imageSize' => 'cover', 
-                            'imageBackgroundColor' => '#FFFFFF', 
-                            'title' => '.$profil->displayName.', 
-                            'text' => '.$profil->statusMessage.', 
-                            'actions' =>  
-                            array ( 
-                              0 =>  
-                              array ( 
-                                'type' => 'uri', 
-                                'label' => 'Edit', 
-                                'uri' => 'line://nv/profile',
-                              ), 
-                            ), 
-                          ), 
-                        ) 
-            ) 
-        ); 
-    }
-	}
-if ($command == '/infome3') { 
-     
-        $balas = array( 
-            'replyToken' => $replyToken, 
-            'messages' => array( 
-                array ( 
-                        'type' => 'template', 
-                          'altText' => 'About Owner', 
-                          'template' =>  
-                          array ( 
-                            'type' => 'buttons', 
-                            'thumbnailImageUrl' => $profil->pictureUrl, 
-                            'imageAspectRatio' => 'rectangle', 
-                            'imageSize' => 'cover', 
-                            'imageBackgroundColor' => '#FFFFFF', 
-                            'title' => $profil->displayName, 
-                            'text' => $profil->statusMessage, 
-                            'actions' =>  
-                            array ( 
-                              0 =>  
-                              array ( 
-                                'type' => 'uri', 
-                                'label' => 'Edit', 
-                                'uri' => 'line://nv/profile', 
-                              ), 
-                            ), 
-                          ), 
-                        ) 
-            ) 
-        ); 
-    }
-	}
 //pesan bergambar
 if ($message['type'] == 'text') {
     if ($command == '/def') {
@@ -1268,38 +1157,6 @@ if($message['type']=='text') {
 }
 //pesan bergambar
 // ----- LOKASI BY FIDHO -----
-if ($command == '/owner') { 
-     
-        $balas = array( 
-            'replyToken' => $replyToken, 
-            'messages' => array( 
-                array ( 
-                        'type' => 'template', 
-                          'altText' => 'About Owner', 
-                          'template' =>  
-                          array ( 
-                            'type' => 'buttons', 
-                            'thumbnailImageUrl' => 'https://image.prntscr.com/image/K0b2P-S6RO6fzFqOVwkgtw.jpg', 
-                            'imageAspectRatio' => 'rectangle', 
-                            'imageSize' => 'cover', 
-                            'imageBackgroundColor' => '#FFFFFF', 
-                            'title' => 'Muhammad Raihan Permadi', 
-                            'text' => 'Creator Panda', 
-                            'actions' =>  
-                            array ( 
-                              0 =>  
-                              array ( 
-                                'type' => 'uri', 
-                                'label' => 'Contact', 
-                                'uri' => 'https://line.me/ti/p/~rhnprmd', 
-                              ), 
-                            ), 
-                          ), 
-                        ) 
-            ) 
-        ); 
-    }
-}
 if($message['type']=='text') {
 	    if ($command == '/lokasi' || $command == '/Lokasi') {
 
@@ -1665,9 +1522,9 @@ if($message['type']=='text') {
 										          1 => 
 										          array (
 													'type' => 'postback',
-													'label' => 'Owner',
+													'label' => 'About',
 													'data' => 'action=add&itemid=111',
-													'text' => '/owner'
+													'text' => 'Ketik /about'
 										          ),
 										          2 => 
 										          array (

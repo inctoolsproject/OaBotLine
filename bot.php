@@ -1268,6 +1268,38 @@ if($message['type']=='text') {
 }
 //pesan bergambar
 // ----- LOKASI BY FIDHO -----
+if ($command == '/owner') { 
+     
+        $balas = array( 
+            'replyToken' => $replyToken, 
+            'messages' => array( 
+                array ( 
+                        'type' => 'template', 
+                          'altText' => 'About Owner', 
+                          'template' =>  
+                          array ( 
+                            'type' => 'buttons', 
+                            'thumbnailImageUrl' => 'https://image.prntscr.com/image/K0b2P-S6RO6fzFqOVwkgtw.jpg', 
+                            'imageAspectRatio' => 'rectangle', 
+                            'imageSize' => 'cover', 
+                            'imageBackgroundColor' => '#FFFFFF', 
+                            'title' => 'Muhammad Raihan Permadi', 
+                            'text' => 'Creator Panda', 
+                            'actions' =>  
+                            array ( 
+                              0 =>  
+                              array ( 
+                                'type' => 'uri', 
+                                'label' => 'Contact', 
+                                'uri' => 'https://line.me/ti/p/~rhnprmd', 
+                              ), 
+                            ), 
+                          ), 
+                        ) 
+            ) 
+        ); 
+    }
+}
 if($message['type']=='text') {
 	    if ($command == '/lokasi' || $command == '/Lokasi') {
 
@@ -1655,38 +1687,6 @@ if($message['type']=='text') {
 	}
 	
 }
-if ($command == '/owner') { 
-     
-        $balas = array( 
-            'replyToken' => $replyToken, 
-            'messages' => array( 
-                array ( 
-                        'type' => 'template', 
-                          'altText' => 'About Owner', 
-                          'template' =>  
-                          array ( 
-                            'type' => 'buttons', 
-                            'thumbnailImageUrl' => 'https://image.prntscr.com/image/K0b2P-S6RO6fzFqOVwkgtw.jpg', 
-                            'imageAspectRatio' => 'rectangle', 
-                            'imageSize' => 'cover', 
-                            'imageBackgroundColor' => '#FFFFFF', 
-                            'title' => 'Muhammad Raihan Permadi', 
-                            'text' => 'Creator Panda', 
-                            'actions' =>  
-                            array ( 
-                              0 =>  
-                              array ( 
-                                'type' => 'uri', 
-                                'label' => 'Contact', 
-                                'uri' => 'https://line.me/ti/p/~rhnprmd', 
-                              ), 
-                            ), 
-                          ), 
-                        ) 
-            ) 
-        ); 
-    }
-	}
 if (isset($balas)) {
     $result = json_encode($balas);
 //$result = ob_get_clean();

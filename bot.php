@@ -1,7 +1,7 @@
 <?php
 /*
-Toby tamvan :v
-Support by : Mastah Ervan
+
+Support by : Mastah Ervan, Toby,Error Team, Risyad, Age, Ryn, Puy, Alfian, Djodi, Alftah, DLL
 */
 
 require_once('./line_class.php');
@@ -665,10 +665,7 @@ if ($command == 'Help') {
     );
 }
 if ($type == 'join') {
-    $text = "Terimakasih Telah invite bot ini ke group kalian
-    Jika ada saran dan masukan kalian tinggal chat owner kami
-    Ketik /owner untuk mendapatkan contact owner, Silahkan Ketik /menu untuk melihat
-    Menu Bot kami :)";
+    $text = "Terimakasih Telah invite bot ini ke group kalian Jika ada saran dan masukan kalian tinggal chat owner kami Ketik /owner untuk mendapatkan contact owner, Silahkan Ketik /menu untuk melihat Menu Bot kami :)";
     $balas = array(
         'replyToken' => $replyToken,
         'messages' => array(

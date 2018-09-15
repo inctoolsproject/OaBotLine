@@ -1290,7 +1290,7 @@ if($message['type']=='text') {
                               array ( 
                                 'type' => 'uri', 
                                 'label' => 'Edit', 
-                                'uri' => 'line://nv/profile', 
+                                'uri' => 'https://www.instagram.com/rhnprmd', 
                               ), 
                             ), 
                           ), 

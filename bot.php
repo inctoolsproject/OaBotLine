@@ -572,6 +572,119 @@ function bisa(){
     return($jawab);
 }
 
+function youtube($keyword) {
+    $uri = "https://www.googleapis.com/youtube/v3/search?part=snippet&order=relevance&regionCode=lk&q=" . $keyword . "&key=AIzaSyB5cpL7DYDn_2c7QuExnGOZ1Wmg4AQmx8c&maxResults=10&type=video";
+	
+
+    $response = Unirest\Request::get("$uri");
+
+    $json = json_decode($response->raw_body, true);
+    $parsed = array();
+    $parsed['a1'] = $json['items']['0']['id']['videoId'];
+	$parsed['b1'] = $json['items']['0']['snippet']['title'];
+	$parsed['c1'] = $json['items']['0']['snippet']['thumbnails']['high']['url'];
+    $parsed['a2'] = $json['items']['1']['id']['videoId'];
+	$parsed['b2'] = $json['items']['1']['snippet']['title'];
+	$parsed['c2'] = $json['items']['1']['snippet']['thumbnails']['high']['url'];
+    $parsed['a3'] = $json['items']['2']['id']['videoId'];
+	$parsed['b3'] = $json['items']['2']['snippet']['title'];
+	$parsed['c3'] = $json['items']['2']['snippet']['thumbnails']['high']['url'];
+    $parsed['a4'] = $json['items']['3']['id']['videoId'];
+	$parsed['b4'] = $json['items']['3']['snippet']['title'];
+	$parsed['c4'] = $json['items']['3']['snippet']['thumbnails']['high']['url'];
+    $parsed['a5'] = $json['items']['4']['id']['videoId'];
+	$parsed['b5'] = $json['items']['4']['snippet']['title'];
+	$parsed['c5'] = $json['items']['4']['snippet']['thumbnails']['high']['url'];
+    $parsed['a6'] = $json['items']['5']['id']['videoId'];
+	$parsed['b6'] = $json['items']['5']['snippet']['title'];
+	$parsed['c6'] = $json['items']['5']['snippet']['thumbnails']['high']['url'];
+    $parsed['a7'] = $json['items']['6']['id']['videoId'];
+	$parsed['b7'] = $json['items']['6']['snippet']['title'];	
+	$parsed['c7'] = $json['items']['6']['snippet']['thumbnails']['high']['url'];
+    $parsed['a8'] = $json['items']['7']['id']['videoId'];
+	$parsed['b8'] = $json['items']['7']['snippet']['title'];
+	$parsed['c8'] = $json['items']['7']['snippet']['thumbnails']['high']['url'];
+    $parsed['a9'] = $json['items']['8']['id']['videoId'];
+	$parsed['b9'] = $json['items']['8']['snippet']['title'];
+	$parsed['c9'] = $json['items']['8']['snippet']['thumbnails']['high']['url'];
+    $parsed['a10'] = $json['items']['9']['id']['videoId'];
+	$parsed['b10'] = $json['items']['9']['snippet']['title'];	
+	$parsed['c10'] = $json['items']['9']['snippet']['thumbnails']['high']['url'];
+    return $parsed;
+}
+function yt($keyword) { 
+    $uri = "http://wahidganteng.ga/process/api/b967d83eed40cf9e17958b1dc85b1db7/youtube-downloader?url=https://www.youtube.com/watch?v=" . $keyword; 
+
+    $response = Unirest\Request::get("$uri"); 
+
+    $json = json_decode($response->raw_body, true); 
+    $result = $json['data']['1']['link']; 
+    return $result; 
+}
+function yt_pict($keyword) { 
+    $uri = "https://www.googleapis.com/youtube/v3/videos?key=AIzaSyB5cpL7DYDn_2c7QuExnGOZ1Wmg4AQmx8c&part=snippet,contentDetails,statistics,topicDetails&id=" . $keyword; 
+
+    $response = Unirest\Request::get("$uri"); 
+
+    $json = json_decode($response->raw_body, true); 
+    $result = $json['items']['0']['snippet']['thumbnails']['high']['url']; 
+    return $result; 
+}
+function wib($keyword) {
+    $uri = "https://time.siswadi.com/timezone/?address=Jakarta";
+
+    $response = Unirest\Request::get("$uri");
+
+    $json = json_decode($response->raw_body, true);
+	$parsed = array(); 
+	$parsed['time'] = $json['time']['time'];
+	$parsed['date'] = $json['time']['date'];
+    return $parsed;
+}
+function wit($keyword) {
+    $uri = "https://time.siswadi.com/timezone/?address=jayapura";
+
+    $response = Unirest\Request::get("$uri");
+
+    $json = json_decode($response->raw_body, true);
+	$parsed = array(); 
+	$parsed['time'] = $json['time']['time'];
+	$parsed['date'] = $json['time']['date'];
+    return $parsed;
+}
+function wita($keyword) {
+    $uri = "https://time.siswadi.com/timezone/?address=manado";
+
+    $response = Unirest\Request::get("$uri");
+
+    $json = json_decode($response->raw_body, true);
+	$parsed = array(); 
+	$parsed['time'] = $json['time']['time'];
+	$parsed['date'] = $json['time']['date'];
+    return $parsed;
+}
+function song($keyword) { 
+    $uri = "http://ide.fdlrcn.com/workspace/yumi-apis/joox?songname=" . $keyword; 
+
+    $response = Unirest\Request::get("$uri"); 
+
+    $json = json_decode($response->raw_body, true); 
+    $parsed = array(); 
+    $parsed['judul'] = (string) $json['0']['0']; 
+    $parsed['durasi'] = (string) $json['0']['1']; 
+    $parsed['unduh'] = (string) $json['0']['4']; 
+    return $parsed; 
+} 
+function story($keyword) { 
+	$keyword2 = str_replace("-","&b=",$keyword);
+    $uri = "https://yuubase.herokuapp.com/story.php?a=" . $keyword2; 
+
+    $response = Unirest\Request::get("$uri"); 
+	
+    $json = json_decode($response->raw_body, true); 
+    $result = $json['img'];
+    return $result; 
+}
 function dosa(){
     $list_jwb = array(
 		'10%',
@@ -713,6 +826,286 @@ Picture: '.$profil->pictureUrl.'
 						);
 				
 	}
+}
+if($message['type']=='text') {
+	    if ($command == '/youtube') {
+
+        $result = youtube($options);
+        $balas = array(
+            'replyToken' => $replyToken,
+            'messages' => array(
+				array (
+				  'type' => 'template',
+				  'altText' => 'Youtube',
+				  'template' => 
+				  array (
+				    'type' => 'carousel',
+				    'columns' => 
+				    array (
+				      0 => 
+				      array (
+				        'thumbnailImageUrl' => $result['c1'],
+				        'imageBackgroundColor' => '#FFFFFF',
+				        'text' => preg_replace('/[^a-z0-9_ ]/i', '', substr($result['b1'], 0, 47)).'...',
+				        'actions' => 
+				        array (
+				          0 => 
+				          array (
+				            'type' => 'message', 
+				            'label' => 'Lihat video',
+				            'text' => '/yt-video '.$result['a1'],
+				          ),
+				          1 => 
+				          array (
+				            'type' => 'uri',
+				            'label' => 'Youtube',
+				            'uri' => 'https://youtu.be/'.$result['a1'],
+				          ),
+				        ),
+				      ),
+				      1 => 
+				      array (
+				        'thumbnailImageUrl' => $result['c2'],
+				        'imageBackgroundColor' => '#000000',
+				        'text' => preg_replace('/[^a-z0-9_ ]/i', '', substr($result['b2'], 0, 47)).'...',
+				        'actions' => 
+				        array (
+				          0 => 
+				          array (
+				            'type' => 'message', 
+				            'label' => 'Lihat video',
+				            'text' => '/yt-video '.$result['a2'],
+				          ),
+				          1 => 
+				          array (
+				            'type' => 'uri',
+				            'label' => 'Youtube',
+				            'uri' => 'https://youtu.be/'.$result['a2'],
+				          ),
+				        ),
+				      ),	
+				      2 => 
+				      array (
+				        'thumbnailImageUrl' => $result['c3'],
+				        'imageBackgroundColor' => '#FFFFFF',
+				        'text' => preg_replace('/[^a-z0-9_ ]/i', '', substr($result['b3'], 0, 47)).'...',
+				        'actions' => 
+				        array (
+				          0 => 
+				          array (
+				            'type' => 'message', 
+				            'label' => 'Lihat video',
+				            'text' => '/yt-video '.$result['a3'],
+				          ),
+				          1 => 
+				          array (
+				            'type' => 'uri',
+				            'label' => 'Youtube',
+				            'uri' => 'https://youtu.be/'.$result['a3'],
+				          ),
+				        ),
+				      ),					  
+				      3 => 
+				      array (
+				        'thumbnailImageUrl' => $result['c4'],
+				        'imageBackgroundColor' => '#FFFFFF',
+				        'text' => preg_replace('/[^a-z0-9_ ]/i', '', substr($result['b4'], 0, 47)).'...',
+				        'actions' => 
+				        array (
+				          0 => 
+				          array (
+				            'type' => 'message', 
+				            'label' => 'Lihat video',
+				            'text' => '/yt-video '.$result['a4'],
+				          ),
+				          1 => 
+				          array (
+				            'type' => 'uri',
+				            'label' => 'Youtube',
+				            'uri' => 'https://youtu.be/'.$result['a4'],
+				          ),
+				        ),
+				      ),
+				      4 => 
+				      array (
+				        'thumbnailImageUrl' => $result['c5'],
+				        'imageBackgroundColor' => '#FFFFFF',
+				        'text' => preg_replace('/[^a-z0-9_ ]/i', '', substr($result['b5'], 0, 47)).'...',
+				        'actions' => 
+				        array (
+				          0 => 
+				          array (
+				            'type' => 'message', 
+				            'label' => 'Lihat video',
+				            'text' => '/yt-video '.$result['a5'],
+				          ),
+				          1 => 
+				          array (
+				            'type' => 'uri',
+				            'label' => 'Youtube',
+				            'uri' => 'https://youtu.be/'.$result['a5'],
+				          ),
+				        ),
+				      ),
+				      5 => 
+				      array (
+				        'thumbnailImageUrl' => $result['c6'],
+				        'imageBackgroundColor' => '#FFFFFF',
+				        'text' => preg_replace('/[^a-z0-9_ ]/i', '', substr($result['b6'], 0, 47)).'...',
+				        'actions' => 
+				        array (
+				          0 => 
+				          array (
+				            'type' => 'message', 
+				            'label' => 'Lihat video',
+				            'text' => '/yt-video '.$result['a6'],
+				          ),
+				          1 => 
+				          array (
+				            'type' => 'uri',
+				            'label' => 'Youtube',
+				            'uri' => 'https://youtu.be/'.$result['a6'],
+				          ),
+				        ),
+				      ),					  
+				      6 => 
+				      array (
+				        'thumbnailImageUrl' => $result['c7'],
+				        'imageBackgroundColor' => '#FFFFFF',
+				        'text' => preg_replace('/[^a-z0-9_ ]/i', '', substr($result['b7'], 0, 47)).'...',
+				        'actions' => 
+				        array (
+				          0 => 
+				          array (
+				            'type' => 'message', 
+				            'label' => 'Lihat video',
+				            'text' => '/yt-video '.$result['a7'],
+				          ),
+				          1 => 
+				          array (
+				            'type' => 'uri',
+				            'label' => 'Youtube',
+				            'uri' => 'https://youtu.be/'.$result['a7'],
+				          ),
+				        ),
+				      ),					  
+				      7 => 
+				      array (
+				        'thumbnailImageUrl' => $result['c8'],
+				        'imageBackgroundColor' => '#FFFFFF',
+				        'text' => preg_replace('/[^a-z0-9_ ]/i', '', substr($result['b8'], 0, 47)).'...',
+				        'actions' => 
+				        array (
+				          0 => 
+				          array (
+				            'type' => 'message', 
+				            'label' => 'Lihat video',
+				            'text' => '/yt-video '.$result['a8'],
+				          ),
+				          1 => 
+				          array (
+				            'type' => 'uri',
+				            'label' => 'Youtube',
+				            'uri' => 'https://youtu.be/'.$result['a8'],
+				          ),
+				        ),
+				      ),					  
+				    ),
+				    'imageAspectRatio' => 'rectangle',
+				    'imageSize' => 'cover',
+				  ),
+				)		
+            )
+        );
+}
+if ($command == '/jam') { 
+     
+        $result = wib($options); 
+		$result2 = wit($options); 
+		$result3 = wita($options); 
+        $balas = array( 
+            'replyToken' => $replyToken, 
+            'messages' => array( 
+                array ( 
+                  'type' => 'template', 
+                  'altText' => 'Jam Indonesia', 
+                  'template' =>  
+                  array ( 
+                    'type' => 'carousel', 
+                    'columns' =>  
+                    array ( 
+                      0 =>  
+                      array ( 
+                        'thumbnailImageUrl' => 'https://image.prntscr.com/image/K0b2P-S6RO6fzFqOVwkgtw.jpg', 
+                        'imageBackgroundColor' => '#FFFFFF', 
+                        'title' => 'WIB', 
+                        'text' => 'Jam Indonesia', 
+                        'actions' =>  
+                        array ( 
+                          0 =>  
+                          array ( 
+                            'type' => 'postback', 
+                            'label' => $result['time'], 
+                            'data' => $result['time'], 
+                          ), 
+                          1 =>  
+                          array ( 
+                            'type' => 'postback', 
+                            'label' => $result['date'],
+                            'data' => $result['date'],
+                          ), 
+                        ), 
+                      ), 
+                      1 =>  
+                      array ( 
+                        'thumbnailImageUrl' => 'https://image.prntscr.com/image/K0b2P-S6RO6fzFqOVwkgtw.jpg', 
+                        'imageBackgroundColor' => '#000000', 
+                        'title' => 'WIT', 
+                        'text' => 'Jam Indonesia', 
+                        'actions' =>  
+                        array ( 
+                          0 =>  
+                          array ( 
+                            'type' => 'postback', 
+                            'label' => $result2['time'], 
+                            'data' => $result2['time'], 
+                          ), 
+                          1 =>  
+                          array ( 
+                            'type' => 'postback', 
+                            'label' => $result2['date'],
+                            'data' => $result2['date'],
+                          ), 
+                        ), 
+                      ), 
+					  2 =>  
+                      array ( 
+                        'thumbnailImageUrl' => 'https://image.prntscr.com/image/K0b2P-S6RO6fzFqOVwkgtw.jpg', 
+                        'imageBackgroundColor' => '#000000', 
+                        'title' => 'WITA', 
+                        'text' => 'Jam Indonesia', 
+                        'actions' =>  
+                        array ( 
+                          0 =>  
+                          array ( 
+                            'type' => 'postback', 
+                            'label' => $result3['time'], 
+                            'data' => $result3['time'], 
+                          ), 
+                          1 =>  
+                          array ( 
+                            'type' => 'postback', 
+                            'label' => $result3['date'],
+                            'data' => $result3['date'],
+                          ), 
+                        ),  
+                      ),
+                    ), 
+                  ), 
+                ) 
+            ) 
+        ); 
+}
 }
 //pesan bergambar
 if ($message['type'] == 'text') {
@@ -994,113 +1387,6 @@ if($message['type']=='text') {
                     'type' => 'image',
                     'originalContentUrl' => $hasil,
                     'previewImageUrl' => $hasil
-                )
-            )
-        );
-    }
-}
-if($message['type']=='text') {
-	    if ($command == '/yt') {
-        $keyword = '';
-        $image = 'https://img.youtube.com/vi/' . $keyword . '/2.jpg';
-        $balas = array(
-            'replyToken' => $replyToken,
-            'messages' => array(
-                array(
-                    'type' => 'image',
-                    'originalContentUrl' => $image,
-                    'previewImageUrl' => $image
-                ), array(
-                    'type' => 'video',
-                    'originalContentUrl' => vid_search($keyword),
-                    'previewImageUrl' => $image
-                )
-            )
-        );
-    }
-}
-if($message['type']=='text') {
-	    if ($command == '/anime') {
-        $result = anime($options);
-        $altText = "Title : " . $result['title'];
-        $altText .= "\n\n" . $result['desc'];
-        $altText .= "\nMAL Page : https://myanimelist.net/anime/" . $result['id'];
-        $balas = array(
-            'replyToken' => $replyToken,
-            'messages' => array(
-                array(
-                    'type' => 'template',
-                    'altText' => $altText,
-                    'template' => array(
-                        'type' => 'buttons',
-                        'title' => $result['title'],
-                        'thumbnailImageUrl' => $result['image'],
-                        'text' => $result['desc'],
-                        'actions' => array(
-                            array(
-                                'type' => 'postback',
-                                'label' => 'Baca Sinopsis-nya',
-                                'data' => 'action=add&itemid=123',
-                                'text' => '/anime-syn ' . $options
-                            ),
-                            array(
-                                'type' => 'uri',
-                                'label' => 'Website MAL',
-                                'uri' => 'https://myanimelist.net/anime/' . $result['id']
-                            )
-                        )
-                    )
-                )
-            )
-        );
-    }
-}
-if($message['type']=='text') {
-	    if ($command == '/manga') {
-        $result = manga($options);
-        $altText = "Title : " . $result['title'];
-        $altText .= "\n\n" . $result['desc'];
-        $altText .= "\nMAL Page : https://myanimelist.net/manga/" . $result['id'];
-        $balas = array(
-            'replyToken' => $replyToken,
-            'messages' => array(
-                array(
-                    'type' => 'template',
-                    'altText' => $altText,
-                    'template' => array(
-                        'type' => 'buttons',
-                        'title' => $result['title'],
-                        'thumbnailImageUrl' => $result['image'],
-                        'text' => $result['desc'],
-                        'actions' => array(
-                            array(
-                                'type' => 'postback',
-                                'label' => 'Baca Sinopsis-nya',
-                                'data' => 'action=add&itemid=123',
-                                'text' => '/manga-syn' . $options
-                            ),
-                            array(
-                                'type' => 'uri',
-                                'label' => 'Website MAL',
-                                'uri' => 'https://myanimelist.net/manga/' . $result['id']
-                            )
-                        )
-                    )
-                )
-            )
-        );
-    }
-}
-if($message['type']=='text') {
-	    if ($command == '/anime-syn') {
-
-        $result = anime_syn($options);
-        $balas = array(
-            'replyToken' => $replyToken,
-            'messages' => array(
-                array(
-                    'type' => 'text',
-                    'text' => $result
                 )
             )
         );
@@ -1404,7 +1690,7 @@ if($message['type']=='text') {
 										    array (
 										      0 => 
 										      array (
-										        'thumbnailImageUrl' => 'https://raw.githubusercontent.com/TobyGaming74/TobyBotOa/master/Toby.png',
+										        'thumbnailImageUrl' => 'http://graphicgo.com/wp-content/uploads/2017/03/b777-2.jpg',
 										        'title' => 'Keyword 1',
 										        'text' => 'Silahkan Dipilih',
 										        'actions' => 
@@ -1412,29 +1698,29 @@ if($message['type']=='text') {
 										          0 => 
 										          array (
 										            'type' => 'postback',
-										            'label' => 'Cari Anime',
+										            'label' => 'Cari Youtube',
 										            'data' => 'action=add&itemid=111',
-													'text' => 'Ketik /anime [Judul Anime]'
+													'text' => 'Ketik /youtube [Judul youtube]'
 										          ),
 										          1 => 
 										          array (
 										            'type' => 'postback',
-										            'label' => 'Cari Sinopsis Anime',
+										            'label' => 'Jam Indonesia',
 										            'data' => 'action=add&itemid=111',
-													'text' => 'Ketik /anime-syn [Judul Anime]'
+													'text' => '/jam'
 												  ),
 										          2 => 
 										          array (
 										            'type' => 'postback',
-										            'label' => 'Cari Manga',
+										            'label' => 'Bot bicara',
 										            'data' => 'action=add&itemid=111',
-													'text' => 'Ketik /manga [Judul Manga]'
+													'text' => 'Ketik /vn [Kata]'
 										          ),
 										        ),
 										      ),
 										      1 => 
 										      array (
-										        'thumbnailImageUrl' => 'https://raw.githubusercontent.com/TobyGaming74/TobyBotOa/master/Toby.png',
+										        'thumbnailImageUrl' => 'http://www.tazercg.com/uploads/1/7/0/9/17094650/s576600189243338396_p40_i9_w2000.png',
 										        'title' => 'Keyword 2',
 										        'text' => 'Silahkan Dipilih',
 										        'actions' => 
@@ -1442,29 +1728,29 @@ if($message['type']=='text') {
 										          0 => 
 										          array (
 										            'type' => 'postback',
-										            'label' => 'Cari Sinopsis Manga',
+										            'label' => 'Apakah',
 										            'data' => 'action=add&itemid=111',
-													'text' => 'Ketik /manga-syn [Judul Manga]'
+													'text' => 'Ketik /apakah [Pertanyaan]'
 										          ),
 										          1 => 
 										          array (
 													'type' => 'postback',
 													'label' => 'Cari Film',
 													'data' => 'action=add&itemid=111',
-													'text' => 'Ketik /film [Judul Film]'
+													'text' => 'Ketik /dimana [Pertanyaan]'
 										          ),
 										          2 => 
 										          array (
 													'type' => 'postback',
 													'label' => 'Cari Sinopsis Film',
 													'data' => 'action=add&itemid=111',
-													'text' => 'Ketik /film-syn [Judul Film]'
+													'text' => 'Ketik /kapan [Pertanyaan]'
 										          ),
 										        ),
 										      ),
 										      2 => 
 										      array (
-										        'thumbnailImageUrl' => 'https://raw.githubusercontent.com/TobyGaming74/TobyBotOa/master/Toby.png',
+										        'thumbnailImageUrl' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/NYCS-bull-trans-2.svg/2000px-NYCS-bull-trans-2.svg.png',
 										        'title' => 'Keyword 3',
 										        'text' => 'Silahkan Dipilih',
 										        'actions' => 
@@ -1494,7 +1780,7 @@ if($message['type']=='text') {
 										      ),
 										      3 => 
 										      array (
-										        'thumbnailImageUrl' => 'https://raw.githubusercontent.com/TobyGaming74/TobyBotOa/master/Toby.png',
+										        'thumbnailImageUrl' => 'https://i0.wp.com/tantrwm.com/wp-content/uploads/2016/11/Tantrwm-Video-Production-Wales-Filming-Live-Streaming-Webcasts-Webcastings-Production-3-man-film-crew.png',
 										        'title' => 'Keyword 4',
 										        'text' => 'Silahkan Dipilih',
 										        'actions' => 
@@ -1524,7 +1810,7 @@ if($message['type']=='text') {
 										      ),
 										      4 => 
 										      array (
-										        'thumbnailImageUrl' => 'https://raw.githubusercontent.com/TobyGaming74/TobyBotOa/master/Toby.png',
+										        'thumbnailImageUrl' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/NYCS-bull-trans-4-red.svg/2000px-NYCS-bull-trans-4-red.svg.png',
 										        'title' => 'Keyword 5',
 										        'text' => 'Silahkan Dipilih',
 										        'actions' => 
@@ -1554,7 +1840,7 @@ if($message['type']=='text') {
 										      ),
 										      5 => 
 										      array (
-										        'thumbnailImageUrl' => 'https://raw.githubusercontent.com/TobyGaming74/TobyBotOa/master/Toby.png',
+										        'thumbnailImageUrl' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/TV5_%28ABC5%29_Logo.svg/250px-TV5_%28ABC5%29_Logo.svg.png',
 										        'title' => 'Keyword 6',
 										        'text' => 'Silahkan Dipilih',
 										        'actions' => 
@@ -1584,7 +1870,7 @@ if($message['type']=='text') {
 										      ),
 										      6 => 
 										      array (
-										        'thumbnailImageUrl' => 'https://raw.githubusercontent.com/TobyGaming74/TobyBotOa/master/Toby.png',
+										        'thumbnailImageUrl' => 'https://pbs.twimg.com/profile_images/536225666237079552/nQlzd9KI.jpeg',
 										        'title' => 'Keyword 7',
 										        'text' => 'Silahkan Dipilih',
 										        'actions' => 

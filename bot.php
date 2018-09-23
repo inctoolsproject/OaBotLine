@@ -24,15 +24,14 @@ if (count($pesan_datang) > 2) {
 }
 #-------------------------[Function]-------------------------#
 function quotes($keyword) {
-    $uri = "http://quotes.rest/qod.json?category=" . $keyword;
+    $uri = "https://rest.farzain.com/api/motivation.php?apikey=fDh6y7ZwXJ24eiArhGEJ55HgA=";
     $response = Unirest\Request::get("$uri");
     $json = json_decode($response->raw_body, true);
-    $result = "Result : ";
-	$result .= $json['success']['total'];
+    $result = "Status : Success!!!";
 	$result .= "\nQuotes : ";
-	$result .= $json['contents']['quotes']['quote'];
-	$result .= "\nAuthor : ";
-	$result .= $json['contents']['quotes']['author'];
+	$result .= $json['result']['quotes'];
+	$result .= "\By : ";
+	$result .= $json['result']['by'];
     return $result;
 }
 function simisimi($keyword) {

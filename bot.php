@@ -42,6 +42,7 @@ function simisimi($keyword) {
     $json = json_decode($response->raw_body, true);
 	$result .= $json['message'];
     return $result;
+}
 #-------------------------[Function]-------------------------#
 function tren($keyword) {
     $uri = "http://api.secold.com/translate/en/" . $keyword;
@@ -249,6 +250,10 @@ function music($keyword) {
     $result .= $json['0']['4'];
     $result .= "\n\nPencarian : Google";
     $result .= "\n====[Music]====";
+    return $result; 
+}
+function gimage($keyword) { 
+    $result .= "https://rest.farzain.com/api/gambarg.php?id=" . $keyword . "&apikey=beta";
     return $result; 
 }
 #-------------------------[Function]-------------------------#
@@ -803,6 +808,40 @@ if($message['type']=='text') {
                             'imageSize' => 'cover', 
                             'imageBackgroundColor' => '#FFFFFF', 
                             'title' => 'Cool Text Generator V1.0', 
+                            'text' => 'Link Image', 
+                            'actions' =>  
+                            array ( 
+                              0 =>  
+                              array ( 
+                                'type' => 'uri', 
+                                'label' => 'Click Here', 
+                                'uri' => $result, 
+                              ), 
+                            ), 
+                          ), 
+                        ) 
+            ) 
+        ); 
+    }
+}
+if($message['type']=='text') {
+		if ($command == '/gimage') { 
+     
+		$result = gimage($options);
+        $balas = array( 
+            'replyToken' => $replyToken, 
+            'messages' => array( 
+                array ( 
+                        'type' => 'template', 
+                          'altText' => 'Google Image', 
+                          'template' =>  
+                          array ( 
+                            'type' => 'buttons', 
+                            'thumbnailImageUrl' => $result, 
+                            'imageAspectRatio' => 'rectangle', 
+                            'imageSize' => 'cover', 
+                            'imageBackgroundColor' => '#FFFFFF', 
+                            'title' => '-' . $keyword . '-', 
                             'text' => 'Link Image', 
                             'actions' =>  
                             array ( 

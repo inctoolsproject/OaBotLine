@@ -10,7 +10,7 @@ $client = new LINEBotTiny($channelAccessToken, $channelSecret);
 
 $userId 	= $client->parseEvents()[0]['source']['userId'];
 $groupId 	= $client->parseEvents()[0]['source']['groupId'];
-$replyToken = $client->parseEvents()[0]['replyToken'];
+$replyToken     = $client->parseEvents()[0]['replyToken'];
 $timestamp	= $client->parseEvents()[0]['timestamp'];
 $type 		= $client->parseEvents()[0]['type'];
 
@@ -1106,16 +1106,16 @@ if ($command == '/yt-video') {
 
         $result = yt($options);
 		$results = yt_pict($options);
-        $balas = array(
-            'replyToken' => $replyToken,
-            'messages' => array(
-                array(
-                'type' => 'video', 
-                'originalContentUrl' => $result, 
-                'previewImageUrl' => $results, 
-                )
+$text .= "Maaf command ini sedang diperbaiki, silahkan ketik /owner untuk menghubungi owner / creator bot ini";
+    $balas = array(
+        'replyToken' => $replyToken,
+        'messages' => array(
+            array(
+                'type' => 'text',
+                'text' => $text
             )
-        );
+        )
+    );
 }
 }
 //pesan bergambar
@@ -1636,7 +1636,7 @@ if($message['type']=='text') {
             'messages' => array(
                 array(
                     'type' => 'text',
-                    'text' => $profil->displayName.'Apa Woy Manggil Manggil??'
+                    'text' => 'Oit'.$profil->displayName.'Apa Woy Manggil Manggil??'
                 )
             )
         );
@@ -1651,7 +1651,7 @@ if($message['type']=='text') {
             'messages' => array(
                 array(
                     'type' => 'text',
-                    'text' => 'HALLO '.$profil->displayName
+                    'text' => 'HALLO '.$profil->displayName.'
                 )
             )
         );
@@ -1666,7 +1666,7 @@ if($message['type']=='text') {
             'messages' => array(
                 array(
                     'type' => 'text',
-                    'text' => 'HALLO '.$profil->displayName
+                    'text' => 'HALLO '.$profil->displayName.'.'
                 )
             )
         );

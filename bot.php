@@ -35,6 +35,14 @@ function quotes($keyword) {
 	$result .= $json['contents']['quotes']['author'];
     return $result;
 }
+function simisimi($keyword) {
+    $uri = "https://rest.farzain.com/api/simsimi.php?apikey=fDh6y7ZwXJ24eiArhGEJ55HgA&text=" . $keyword;
+
+    $response = Unirest\Request::get("$uri");
+
+    $json = json_decode($response->raw_body, true);
+	$result .= $json['message'];
+    return $result;
 #-------------------------[Function]-------------------------#
 function tren($keyword) {
     $uri = "http://api.secold.com/translate/en/" . $keyword;
@@ -725,7 +733,7 @@ if ($type == 'join') {
     );
 }
 if($message['type']=='text') {
-	    if ($command == '/test') {
+	    if ($command == '/') {
 
         $result = coolt($options);
         $balas = array(
@@ -1201,6 +1209,20 @@ if($message['type']=='text') {
 if($message['type']=='text') {
 	    if ($command == '/tr-ja') {
         $result = trja($options);
+        $balas = array(
+            'replyToken' => $replyToken,
+            'messages' => array(
+                array(
+                    'type' => 'text',
+                    'text' => $result
+                )
+            )
+        );
+    }
+}
+if($message['type']=='text') {
+	    if ($command == '.') {
+        $result = simisimi($options);
         $balas = array(
             'replyToken' => $replyToken,
             'messages' => array(

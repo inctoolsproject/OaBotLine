@@ -1683,7 +1683,7 @@ if($message['type']=='text') {
 										      ),
 										      3 => 
 										      array (
-										        'thumbnailImageUrl' => 'https://media.tenor.com/images/5e48be577c762b25c141d248e04b0510/tenor.gif'
+										        'thumbnailImageUrl' => 'https://media.tenor.com/images/5e48be577c762b25c141d248e04b0510/tenor.gif',
 										        'title' => 'Keyword 4',
 										        'text' => 'Silahkan Dipilih',
 										        'actions' => 
@@ -1713,7 +1713,7 @@ if($message['type']=='text') {
 										      ),
 										      4 => 
 										      array (
-										        'thumbnailImageUrl' => 'https://media.tenor.com/images/249c4b5a4bd8b2bf06a7dd36063ad245/tenor.gif'
+										        'thumbnailImageUrl' => 'https://media.tenor.com/images/249c4b5a4bd8b2bf06a7dd36063ad245/tenor.gif',
 										        'title' => 'Keyword 5',
 										        'text' => 'Silahkan Dipilih',
 										        'actions' => 
@@ -1743,7 +1743,7 @@ if($message['type']=='text') {
 										      ),
 										      5 => 
 										      array (
-										        'thumbnailImageUrl' => 'https://media.tenor.com/images/10d839df680ef07b1386a17076b2aa8b/tenor.gif'
+										        'thumbnailImageUrl' => 'https://media.tenor.com/images/10d839df680ef07b1386a17076b2aa8b/tenor.gif',
 										        'title' => 'Keyword 6',
 										        'text' => 'Silahkan Dipilih',
 										        'actions' => 

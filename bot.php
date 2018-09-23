@@ -725,6 +725,26 @@ if ($type == 'join') {
     );
 }
 if($message['type']=='text') {
+	    if ($command == '/test') {
+
+        $result = coolt($options);
+        $balas = array(
+            'replyToken' => $replyToken,
+            'messages' => array(
+                array(
+                    'type' => 'text',
+                    'text'  => 'Searching...'
+                ),
+                array(
+                    'type' => 'text',
+                    'text' => $result
+                )
+            )
+        );
+    }
+
+}
+if($message['type']=='text') {
 	    if ($command == '/qiblat') {
         $hasil = qibla($options);
         $balas = array(

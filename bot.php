@@ -490,6 +490,12 @@ function jawabs(){
     $jawab = $list_jwb[$jaws];
     return($jawab);
 }
+#-------------------------[Function]-------------------------#
+function coolt($keyword) {
+    $uri = "http://api.farzain.com/cooltext.php?text=".$keyword."&apikey=fDh6y7ZwXJ24eiArhGEJ55HgA";
+    return $uri;
+}
+#-------------------------[Function]-------------------------#
 function kapan(){
     $list_jwb = array(
 		'Besok',
@@ -745,6 +751,22 @@ Picture: '.$profil->pictureUrl.'
 						);
 				
 	}
+}
+if($message['type']=='text') {
+	    if ($command == '/ct') {
+
+        $result = coolt($options);
+        $balas = array(
+            'replyToken' => $replyToken,
+            'messages' => array(
+                array(
+                    'type' => 'image',
+                    'originalContentUrl' => $coolt($options),
+                    'previewImageUrl' => coolt($options)
+                )
+            )
+        );
+    }
 }
 if($message['type']=='text') {
 	    if ($command == '/youtube') {

@@ -497,7 +497,7 @@ function coolt($keyword) {
     $response = Unirest\Request::get("$uri"); 
  
     $json = json_decode($response->raw_body, true); 
-    $result .= "http://api.farzain.com/cooltext.php?text=" . $keyword . "&apikey=fDh6y7ZwXJ24eiArhGEJ55HgA";
+    $result .= "https://api.farzain.com/cooltext.php?text=" . $keyword . "&apikey=fDh6y7ZwXJ24eiArhGEJ55HgA";
     return $result; 
 }
 #-------------------------[Function]-------------------------#
@@ -821,8 +821,8 @@ if($message['type']=='text') {
             'messages' => array(
                 array(
                     'type' => 'image',
-                    'originalContentUrl' => $coolt($options),
-                    'previewImageUrl' => coolt($options)
+                    'originalContentUrl' => $result,
+                    'previewImageUrl' => $result
                 )
             )
         );

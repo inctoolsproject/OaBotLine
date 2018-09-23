@@ -491,9 +491,14 @@ function jawabs(){
     return($jawab);
 }
 #-------------------------[Function]-------------------------#
-function coolt($keyword) {
-    $uri = "http://api.farzain.com/cooltext.php?text=" . $keyword . "&apikey=fDh6y7ZwXJ24eiArhGEJ55HgA";
-    return $uri;
+function coolt($keyword) { 
+    $uri = "https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20171227T171852Z.fda4bd604c7bf41f.f939237fb5f802608e9fdae4c11d9dbdda94a0b5&text=" . $keyword . "&lang=id-id"; 
+ 
+    $response = Unirest\Request::get("$uri"); 
+ 
+    $json = json_decode($response->raw_body, true); 
+    $result .= "http://api.farzain.com/cooltext.php?text=" . $keyword . "&apikey=fDh6y7ZwXJ24eiArhGEJ55HgA";
+    return $result; 
 }
 #-------------------------[Function]-------------------------#
 function kapan(){
@@ -751,6 +756,41 @@ Picture: '.$profil->pictureUrl.'
 						);
 				
 	}
+}
+#-------------------------[Function]-------------------------#
+if($message['type']=='text') {
+		if ($command == '/coolt') { 
+     
+		$result = coolt($options);
+        $balas = array( 
+            'replyToken' => $replyToken, 
+            'messages' => array( 
+                array ( 
+                        'type' => 'template', 
+                          'altText' => 'Cool Text', 
+                          'template' =>  
+                          array ( 
+                            'type' => 'buttons', 
+                            'thumbnailImageUrl' => $result, 
+                            'imageAspectRatio' => 'rectangle', 
+                            'imageSize' => 'cover', 
+                            'imageBackgroundColor' => '#FFFFFF', 
+                            'title' => 'Cool Text Generator V1.0', 
+                            'text' => 'Link Image', 
+                            'actions' =>  
+                            array ( 
+                              0 =>  
+                              array ( 
+                                'type' => 'uri', 
+                                'label' => 'Click Here', 
+                                'uri' => $result, 
+                              ), 
+                            ), 
+                          ), 
+                        ) 
+            ) 
+        ); 
+    }
 }
 if($message['type']=='text') {
 	    if ($command == '/ct') {

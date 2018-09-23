@@ -492,7 +492,7 @@ function jawabs(){
 }
 #-------------------------[Function]-------------------------#
 function coolt($keyword) {
-    $uri = "http://api.farzain.com/cooltext.php?text=".$keyword."&apikey=fDh6y7ZwXJ24eiArhGEJ55HgA";
+    $uri = "http://api.farzain.com/cooltext.php?text=" . $keyword . "&apikey=fDh6y7ZwXJ24eiArhGEJ55HgA";
     return $uri;
 }
 #-------------------------[Function]-------------------------#

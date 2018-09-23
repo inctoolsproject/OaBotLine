@@ -264,6 +264,46 @@ function gimage($keyword) {
 	$result .= $json['url'];
     return $result;
 }
+function gimage22($keyword) {
+    $uri = $uri = "https://rest.farzain.com/api/gambarg.php?id=" . $keyword . "&apikey=fDh6y7ZwXJ24eiArhGEJ55HgA";
+	
+
+    $response = Unirest\Request::get("$uri");
+
+    $json = json_decode($response->raw_body, true);
+    $parsed = array();
+    $parsed['a1'] = $json['url'];
+	$parsed['b1'] = $json['url'];
+	$parsed['c1'] = $json['url'];
+    $parsed['a2'] = $json['url'];
+	$parsed['b2'] = $json['url'];
+	$parsed['c2'] = $json['url'];
+    $parsed['a3'] = $json['url'];
+	$parsed['b3'] = $json['url'];
+	$parsed['c3'] = $json['url'];
+    $parsed['a4'] = $json['url'];
+	$parsed['b4'] = $json['url'];
+	$parsed['c4'] = $json['url'];
+    $parsed['a5'] = $json['url'];
+	$parsed['b5'] = $json['url'];
+	$parsed['c5'] = $json['url'];
+    $parsed['a6'] = $json['url'];
+	$parsed['b6'] = $json['url'];
+	$parsed['c6'] = $json['url'];
+    $parsed['a7'] = $json['url'];
+	$parsed['b7'] = $json['url'];
+	$parsed['c7'] = $json['url'];
+    $parsed['a8'] = $json['url'];
+	$parsed['b8'] = $json['url'];
+	$parsed['c8'] = $json['url'];
+    $parsed['a9'] = $json['url'];
+	$parsed['b9'] = $json['url'];
+	$parsed['c9'] = $json['url'];
+    $parsed['a10'] = $json['url'];
+	$parsed['b10'] = $json['url'];
+	$parsed['c10'] = $json['url'];
+    return $parsed;
+}
 #-------------------------[Function]-------------------------#
 function githubrepo($keyword) { 
     $uri = "https://api.github.com/search/repositories?q=" . $keyword; 
@@ -831,6 +871,197 @@ if($message['type']=='text') {
             ) 
         ); 
     }
+}
+if($message['type']=='text') {
+	    if ($command == '/image') {
+
+        $result = gimage22($options);
+        $balas = array(
+            'replyToken' => $replyToken,
+            'messages' => array(
+				array (
+				  'type' => 'template',
+				  'altText' => 'Google Image',
+				  'template' => 
+				  array (
+				    'type' => 'carousel',
+				    'columns' => 
+				    array (
+				      0 => 
+				      array (
+				        'thumbnailImageUrl' => $result['c1'],
+				        'imageBackgroundColor' => '#FFFFFF',
+				        'text' => 'Gambar 1',
+				        'actions' => 
+				        array (
+				          0 => 
+				          array (
+				            'type' => 'message', 
+				            'label' => 'Lihat link',
+				            'text' => $result['a1'],
+				          ),
+				          1 => 
+				          array (
+				            'type' => 'uri',
+				            'label' => 'Lihat Gambar',
+				            'uri' => $result['a1'],
+				          ),
+				        ),
+				      ),
+				      1 => 
+				      array (
+				        'thumbnailImageUrl' => $result['c2'],
+				        'imageBackgroundColor' => '#000000',
+				        'text' => 'Gambar 2',
+				        'actions' => 
+				        array (
+				          0 => 
+				          array (
+				            'type' => 'message', 
+				            'label' => 'Lihat Link',
+				            'text' => $result['a2'],
+				          ),
+				          1 => 
+				          array (
+				            'type' => 'uri',
+				            'label' => 'Lihat Gambar',
+				            'uri' => $result['a2'],
+				          ),
+				        ),
+				      ),	
+				      2 => 
+				      array (
+				        'thumbnailImageUrl' => $result['c3'],
+				        'imageBackgroundColor' => '#FFFFFF',
+				        'text' => 'Gambar 3',
+				        'actions' => 
+				        array (
+				          0 => 
+				          array (
+				            'type' => 'message', 
+				            'label' => 'Lihat Link',
+				            'text' => $result['a3'],
+				          ),
+				          1 => 
+				          array (
+				            'type' => 'uri',
+				            'label' => 'Lihat Gambar',
+				            'uri' => $result['a3'],
+				          ),
+				        ),
+				      ),					  
+				      3 => 
+				      array (
+				        'thumbnailImageUrl' => $result['c4'],
+				        'imageBackgroundColor' => '#FFFFFF',
+				        'text' => 'Gambar 4',
+				        'actions' => 
+				        array (
+				          0 => 
+				          array (
+				            'type' => 'message', 
+				            'label' => 'Lihat Link',
+				            'text' => $result['a4'],
+				          ),
+				          1 => 
+				          array (
+				            'type' => 'uri',
+				            'label' => 'Lihat Gambar',
+				            'uri' => $result['a4'],
+				          ),
+				        ),
+				      ),
+				      4 => 
+				      array (
+				        'thumbnailImageUrl' => $result['c5'],
+				        'imageBackgroundColor' => '#FFFFFF',
+				        'text' => 'Gambar 4',
+				        'actions' => 
+				        array (
+				          0 => 
+				          array (
+				            'type' => 'message', 
+				            'label' => 'Lihat Link',
+				            'text' => $result['a5'],
+				          ),
+				          1 => 
+				          array (
+				            'type' => 'uri',
+				            'label' => 'Lihat Gambar',
+				            'uri' => $result['a5'],
+				          ),
+				        ),
+				      ),
+				      5 => 
+				      array (
+				        'thumbnailImageUrl' => $result['c6'],
+				        'imageBackgroundColor' => '#FFFFFF',
+				        'text' => 'Gambar 5',
+				        'actions' => 
+				        array (
+				          0 => 
+				          array (
+				            'type' => 'message', 
+				            'label' => 'Lihat Link',
+				            'text' => $result['a6'],
+				          ),
+				          1 => 
+				          array (
+				            'type' => 'uri',
+				            'label' => 'Lihat Gambar',
+				            'uri' => $result['a6'],
+				          ),
+				        ),
+				      ),					  
+				      6 => 
+				      array (
+				        'thumbnailImageUrl' => $result['c7'],
+				        'imageBackgroundColor' => '#FFFFFF',
+				        'text' => 'Gambar 6',
+				        'actions' => 
+				        array (
+				          0 => 
+				          array (
+				            'type' => 'message', 
+				            'label' => 'Lihat Link',
+				            'text' => $result['a7'],
+				          ),
+				          1 => 
+				          array (
+				            'type' => 'uri',
+				            'label' => 'Lihat Gambar',
+				            'uri' => $result['a7'],
+				          ),
+				        ),
+				      ),					  
+				      7 => 
+				      array (
+				        'thumbnailImageUrl' => $result['c8'],
+				        'imageBackgroundColor' => '#FFFFFF',
+				        'text' => 'Gambar 7',
+				        'actions' => 
+				        array (
+				          0 => 
+				          array (
+				            'type' => 'message', 
+				            'label' => 'Lihat Link',
+				            'text' => $result['a8'],
+				          ),
+				          1 => 
+				          array (
+				            'type' => 'uri',
+				            'label' => 'Lihat Gambar',
+				            'uri' => $result['a8'],
+				          ),
+				        ),
+				      ),					  
+				    ),
+				    'imageAspectRatio' => 'rectangle',
+				    'imageSize' => 'cover',
+				  ),
+				)		
+            )
+        );
 }
 if($message['type']=='text') {
 		if ($command == '/gimage') { 

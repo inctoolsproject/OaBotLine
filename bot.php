@@ -816,16 +816,31 @@ if($message['type']=='text') {
 	    if ($command == '/ct') {
 
         $result = coolt($options);
-        $balas = array(
-            'replyToken' => $replyToken,
-            'messages' => array(
-                array(
-                    'type' => 'image',
-                    'originalContentUrl' => $result,
-                    'previewImageUrl' => $result
-                )
-            )
-        );
+        $balas = array (
+  'type' => 'imagemap',
+  'baseUrl' => $result,
+  'altText' => 'Cool Text',
+  'baseSize' => 
+  array (
+    'height' => 1040,
+    'width' => 1040,
+  ),
+  'actions' => 
+  array (
+    0 => 
+    array (
+      'type' => 'uri',
+      'linkUri' => $result,
+      'area' => 
+      array (
+        'x' => 0,
+        'y' => 0,
+        'width' => 520,
+        'height' => 1040,
+      ),
+    ),
+  ),
+);
     }
 }
 if($message['type']=='text') {

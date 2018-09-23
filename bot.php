@@ -252,9 +252,17 @@ function music($keyword) {
     $result .= "\n====[Music]====";
     return $result; 
 }
-function gimage($keyword) { 
+function gimage2($keyword) { 
     $result = "https://rest.farzain.com/api/gambarg.php?id=" . $keyword . "&apikey=fDh6y7ZwXJ24eiArhGEJ55HgA";
     return $result; 
+}
+#-------------------------[Function]-------------------------#
+function gimage($keyword) {
+    $uri = "https://rest.farzain.com/api/gambarg.php?id=" . $keyword . "&apikey=fDh6y7ZwXJ24eiArhGEJ55HgA";
+    $response = Unirest\Request::get("$uri");
+    $json = json_decode($response->raw_body, true);
+	$result .= $json['url'];
+    return $result;
 }
 #-------------------------[Function]-------------------------#
 function githubrepo($keyword) { 

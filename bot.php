@@ -253,7 +253,8 @@ function music($keyword) {
     return $result; 
 }
 function gimage($keyword) { 
-    $result .= "https://rest.farzain.com/api/gambarg.php?id=" . $keyword . "&apikey=beta";
+    $parsed['1'] = "-" . $keyword . "-";
+    $parsed['2'] = "https://rest.farzain.com/api/gambarg.php?id=" . $keyword . "&apikey=fDh6y7ZwXJ24eiArhGEJ55HgA";
     return $result; 
 }
 #-------------------------[Function]-------------------------#
@@ -837,11 +838,11 @@ if($message['type']=='text') {
                           'template' =>  
                           array ( 
                             'type' => 'buttons', 
-                            'thumbnailImageUrl' => $result, 
+                            'thumbnailImageUrl' => $result['2'], 
                             'imageAspectRatio' => 'rectangle', 
                             'imageSize' => 'cover', 
                             'imageBackgroundColor' => '#FFFFFF', 
-                            'title' => '-' . $keyword . '-', 
+                            'title' => $result['1'], 
                             'text' => 'Link Image', 
                             'actions' =>  
                             array ( 

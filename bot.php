@@ -30,7 +30,8 @@ function quotes($keyword) {
     $result = "Status : Success!!!";
 	$result .= "\nQuotes : ";
 	$result .= $json['result']['quotes'];
-	$result .= "n\By : ";
+	$result = "\n";
+	$result .= "By : ";
 	$result .= $json['result']['by'];
     return $result;
 }
@@ -253,9 +254,8 @@ function music($keyword) {
     return $result; 
 }
 function gimage($keyword) { 
-    $parsed['1'] = "-" . $keyword . "-";
-    $parsed['2'] = "https://rest.farzain.com/api/gambarg.php?id=" . $keyword . "&apikey=fDh6y7ZwXJ24eiArhGEJ55HgA";
-    return $parsed; 
+    $result = "https://rest.farzain.com/api/gambarg.php?id=" . $keyword . "&apikey=fDh6y7ZwXJ24eiArhGEJ55HgA";
+    return $result; 
 }
 #-------------------------[Function]-------------------------#
 function githubrepo($keyword) { 
@@ -838,11 +838,11 @@ if($message['type']=='text') {
                           'template' =>  
                           array ( 
                             'type' => 'buttons', 
-                            'thumbnailImageUrl' => $result['2'], 
+                            'thumbnailImageUrl' => $result, 
                             'imageAspectRatio' => 'rectangle', 
                             'imageSize' => 'cover', 
                             'imageBackgroundColor' => '#FFFFFF', 
-                            'title' => $result['1'], 
+                            'title' => $keyword, 
                             'text' => 'Link Image', 
                             'actions' =>  
                             array ( 

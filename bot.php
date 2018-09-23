@@ -1441,7 +1441,7 @@ if($message['type']=='text') {
                           'template' =>  
                           array ( 
                             'type' => 'buttons', 
-                            'thumbnailImageUrl' => 'https://bpptik.kominfo.go.id/wp-content/uploads/2016/09/Programmer.jpg', 
+                            'thumbnailImageUrl' => 'https://media1.tenor.com/images/504688092764dd902e28389fcc7383cf/tenor.gif', 
                             'imageAspectRatio' => 'rectangle', 
                             'imageSize' => 'cover', 
                             'imageBackgroundColor' => '#FFFFFF', 
@@ -1593,7 +1593,7 @@ if($message['type']=='text') {
 										    array (
 										      0 => 
 										      array (
-										        'thumbnailImageUrl' => 'http://graphicgo.com/wp-content/uploads/2017/03/b777-2.jpg',
+										        'thumbnailImageUrl' => 'https://media1.tenor.com/images/c1047f5d7cf8c7f1844f4a25dbcca729/tenor.gif',
 										        'title' => 'Keyword 1',
 										        'text' => 'Silahkan Dipilih',
 										        'actions' => 
@@ -1623,7 +1623,7 @@ if($message['type']=='text') {
 										      ),
 										      1 => 
 										      array (
-										        'thumbnailImageUrl' => 'http://www.tazercg.com/uploads/1/7/0/9/17094650/s576600189243338396_p40_i9_w2000.png',
+										        'thumbnailImageUrl' => 'https://media1.tenor.com/images/ee35467730a95c67515a7dfa140ecf32/tenor.gif',
 										        'title' => 'Keyword 2',
 										        'text' => 'Silahkan Dipilih',
 										        'actions' => 
@@ -1653,7 +1653,7 @@ if($message['type']=='text') {
 										      ),
 										      2 => 
 										      array (
-										        'thumbnailImageUrl' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/NYCS-bull-trans-2.svg/2000px-NYCS-bull-trans-2.svg.png',
+										        'thumbnailImageUrl' => 'https://media1.tenor.com/images/c92e523f2ccb6530d14a2d85cf0b081e/tenor.gif',
 										        'title' => 'Keyword 3',
 										        'text' => 'Silahkan Dipilih',
 										        'actions' => 
@@ -1683,7 +1683,7 @@ if($message['type']=='text') {
 										      ),
 										      3 => 
 										      array (
-										        'thumbnailImageUrl' => 'https://i0.wp.com/tantrwm.com/wp-content/uploads/2016/11/Tantrwm-Video-Production-Wales-Filming-Live-Streaming-Webcasts-Webcastings-Production-3-man-film-crew.png',
+										        'thumbnailImageUrl' => 'https://media.tenor.com/images/5e48be577c762b25c141d248e04b0510/tenor.gif'
 										        'title' => 'Keyword 4',
 										        'text' => 'Silahkan Dipilih',
 										        'actions' => 
@@ -1713,7 +1713,7 @@ if($message['type']=='text') {
 										      ),
 										      4 => 
 										      array (
-										        'thumbnailImageUrl' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/NYCS-bull-trans-4-red.svg/2000px-NYCS-bull-trans-4-red.svg.png',
+										        'thumbnailImageUrl' => 'https://media.tenor.com/images/249c4b5a4bd8b2bf06a7dd36063ad245/tenor.gif'
 										        'title' => 'Keyword 5',
 										        'text' => 'Silahkan Dipilih',
 										        'actions' => 
@@ -1743,7 +1743,7 @@ if($message['type']=='text') {
 										      ),
 										      5 => 
 										      array (
-										        'thumbnailImageUrl' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/TV5_%28ABC5%29_Logo.svg/250px-TV5_%28ABC5%29_Logo.svg.png',
+										        'thumbnailImageUrl' => 'https://media.tenor.com/images/10d839df680ef07b1386a17076b2aa8b/tenor.gif'
 										        'title' => 'Keyword 6',
 										        'text' => 'Silahkan Dipilih',
 										        'actions' => 
@@ -1773,7 +1773,7 @@ if($message['type']=='text') {
 										      ),
 										      6 => 
 										      array (
-										        'thumbnailImageUrl' => 'https://pbs.twimg.com/profile_images/536225666237079552/nQlzd9KI.jpeg',
+										        'thumbnailImageUrl' => 'https://media.tenor.com/images/468b7c3529dc38d29b97d0eb89e216eb/tenor.gif',
 										        'title' => 'Keyword 7',
 										        'text' => 'Silahkan Dipilih',
 										        'actions' => 

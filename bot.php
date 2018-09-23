@@ -24,13 +24,13 @@ if (count($pesan_datang) > 2) {
 }
 #-------------------------[Function]-------------------------#
 function quotes($keyword) {
-    $uri = "https://rest.farzain.com/api/motivation.php?apikey=fDh6y7ZwXJ24eiArhGEJ55HgA=";
+    $uri = "https://rest.farzain.com/api/motivation.php?apikey=fDh6y7ZwXJ24eiArhGEJ55HgA";
     $response = Unirest\Request::get("$uri");
     $json = json_decode($response->raw_body, true);
     $result = "Status : Success!!!";
 	$result .= "\nQuotes : ";
 	$result .= $json['result']['quotes'];
-	$result .= "\By : ";
+	$result .= "n\By : ";
 	$result .= $json['result']['by'];
     return $result;
 }
@@ -255,7 +255,7 @@ function music($keyword) {
 function gimage($keyword) { 
     $parsed['1'] = "-" . $keyword . "-";
     $parsed['2'] = "https://rest.farzain.com/api/gambarg.php?id=" . $keyword . "&apikey=fDh6y7ZwXJ24eiArhGEJ55HgA";
-    return $result; 
+    return $parsed; 
 }
 #-------------------------[Function]-------------------------#
 function githubrepo($keyword) { 

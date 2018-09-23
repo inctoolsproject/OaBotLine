@@ -759,9 +759,23 @@ if ($command == 'Help') {
     $text .= "> /qiblat [namakota]\n";
     $text .= "> /playstore [namaapk]\n";
     $text .= "> /myinfo\n";
-    $text .= "> /creator\n";
+    $text .= "> /owner\n";
     $text .= "> /about\n";
-    $text .= "> /bantuan\n";
+    $text .= "> /menu\n";
+	    $text .= "> /image [search]\n";
+	    $text .= "> /coolt [teks]\n";
+	    $text .= "> /quotes\n";
+	    $text .= "> /youtube [text]\n";
+	    $text .= "> /instagram [text]\n";
+	$text .= "> /bioskop [text]\n";
+	$text .= "> /artinama [nama]\n";
+	$text .= "> /jadwal-xxi [text]\n";
+	$text .= "> /wikipedia [text]\n";
+	$text .= "> /ptn [lokasi]\n";
+	$text .= "> /kbbi [text]\n";
+	$text .= "> /transelate-[en,id,ar,ja] [text]\n";
+	$text .= "> /drakor [text]\n";
+	$text .= "> /jadwal-bola";
     $balas = array(
         'replyToken' => $replyToken,
         'messages' => array(
@@ -1062,6 +1076,7 @@ if($message['type']=='text') {
 				)		
             )
         );
+}
 }
 if($message['type']=='text') {
 		if ($command == '/gimage') { 

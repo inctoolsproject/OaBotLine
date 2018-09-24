@@ -207,7 +207,7 @@ function qibla($keyword) {
 #-------------------------[Function Close]-------------------------#
 #-------------------------[Command Open]-------------------------#
 if($message['type']=='text') {
-if ($command == 'Help') {
+if ($command == 'Help' || $command == '/menu') {
     $text .= "Keyword BedBotdzs ~~~\n";
     $text .= "- Help\n----[Media]----\n";
     $text .= "- /jam .\n";

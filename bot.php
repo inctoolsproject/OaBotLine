@@ -94,6 +94,7 @@ function coolt($keyword) {
     $json = json_decode($response->raw_body, true); 
     $result .= "https://api.farzain.com/cooltext.php?text=" . $keyword . "&apikey=fDh6y7ZwXJ24eiArhGEJ55HgA";
     return $result; 
+}
 #-------------------------[Close]-------------------------#
 #-------------------------[Open]-------------------------#
 function zodiak($keyword) {

@@ -550,10 +550,10 @@ if($message['type']=='text') {
             'messages' => array(
                 array(
 										'type' => 'text',					
-										'text' => '「 Info Profile  」'
+										'text' => '「 Info Profile  」
 Nama: '.$profil->displayName.'
 Status: '.$profil->statusMessage.'
-Picture: '.$profil->pictureUrl.'
+Picture: '.$profil->pictureUrl.'\nDone'
 									)
 							)
 						);
@@ -567,8 +567,8 @@ if($message['type']=='text') {
             'messages' => array(
                 array(
 										'type' => 'text',					
-										'text' => '「 Creator  」'
-Creator: 'The Beginning of this Bot Comes from Ubed, Im just Reworked This!\n\nOf Course Special Thanks To Ubed And the Friends Around Me.\nCreator -> https://line.me/ti/p/~rhnprmd'
+										'text' => '「 Creator  」
+Creator: The Beginning of this Bot Comes from Ubed, Im just Reworked This!\n\nOf Course Special Thanks To Ubed And the Friends Around Me.\nCreator -> https://line.me/ti/p/~rhnprmd'
 									)
 							)
 						);

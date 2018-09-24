@@ -206,21 +206,20 @@ function qibla($keyword) {
 #-------------------------[Open]-------------------------#
 #-------------------------[Function Close]-------------------------#
 #-------------------------[Command Open]-------------------------#
-if($message['type']=='text') {
 if ($command == 'Help' || $command == '/menu') {
     $text .= "Keyword BedBotdzs ~~~\n";
-    $text .= "- Help\n----[Media]----\n";
-    $text .= "- /jam .\n";
-    $text .= "- /quotes .\n";
-    $text .= "- /say [teks] .\n";
-    $text .= "- /definition [teks] .\n";
-    $text .= "- /coolteks [teks] .\n";
-    $text .= "- /shalat [lokasi] .\n";
-    $text .= "- /qiblat [teks] .\n";
-    $text .= "- /film [teks] .\n";
-    $text .= "- /film-syn [teks] .\n";
-    $text .= "- /zodiak [tanggal lahir] .\n";
-    $text .= "- /creator .\n";
+    $text .= "- Help\n";
+    $text .= "- /jam \n";
+    $text .= "- /quotes \n";
+    $text .= "- /say [teks] \n";
+    $text .= "- /definition [teks] \n";
+    $text .= "- /coolteks [teks] \n";
+    $text .= "- /shalat [lokasi] \n";
+    $text .= "- /qiblat [teks] \n";
+    $text .= "- /film [teks] \n";
+    $text .= "- /film-syn [teks]\n";
+    $text .= "- /zodiak [tanggal lahir]\n";
+    $text .= "- /creator\n";
     $balas = array(
         'replyToken' => $replyToken,
         'messages' => array(
@@ -230,7 +229,6 @@ if ($command == 'Help' || $command == '/menu') {
             )
         )
     );
-}
 }
 #-------------------------[Close]-------------------------#
 #-------------------------[Open]-------------------------#

@@ -1,28 +1,17 @@
 <?php
-/*
-
-Support by : Allah SWT and All My Friend
-*/
-
 require_once('./line_class.php');
 require_once('./unirest-php-master/src/Unirest.php');
-
 $channelAccessToken = 'nBOZlu9u30ITxAt1tZXkbvAHsgb2/EIHhBo8mwuzg/dqIAhJNjqW/A97MBf2lX2B+5L7NicAQYMLSJh6vw/MZ6Gpsbbj1am/jIHH18e9azTknd/6Jxi2qFEMMFlmrrjHixXEE4hQKCkJw/DbNW7z9gdB04t89/1O/w1cDnyilFU='; //sesuaikan 
 $channelSecret = '7bc5b547eb74a52213c4e88af08da151';//sesuaikan
-
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
-
-$userId 	= $client->parseEvents()[0]['source']['userId'];
-$groupId 	= $client->parseEvents()[0]['source']['groupId'];
+$userId     = $client->parseEvents()[0]['source']['userId'];
+$groupId    = $client->parseEvents()[0]['source']['groupId'];
 $replyToken = $client->parseEvents()[0]['replyToken'];
-$timestamp	= $client->parseEvents()[0]['timestamp'];
-$type 		= $client->parseEvents()[0]['type'];
-
-$message 	= $client->parseEvents()[0]['message'];
-$messageid 	= $client->parseEvents()[0]['message']['id'];
-
+$timestamp  = $client->parseEvents()[0]['timestamp'];
+$type       = $client->parseEvents()[0]['type'];
+$message    = $client->parseEvents()[0]['message'];
+$messageid  = $client->parseEvents()[0]['message']['id'];
 $profil = $client->profil($userId);
-
 $pesan_datang = explode(" ", $message['text']);
 $msg_type = $message['type'];
 $command = $pesan_datang[0];
@@ -201,25 +190,21 @@ function qibla($keyword) {
     return $result; 
 }
 #-------------------------[Close]-------------------------#
-#-------------------------[Open]-------------------------#
-#-------------------------[Close]-------------------------#
-#-------------------------[Open]-------------------------#
-#-------------------------[Function Close]-------------------------#
 #-------------------------[Command Open]-------------------------#
-if ($command == 'Help' || $command == '/menu') {
+if ($command == 'Help') {
     $text .= "Keyword BedBotdzs ~~~\n";
-    $text .= "- Help\n";
-    $text .= "- /jam \n";
-    $text .= "- /quotes \n";
-    $text .= "- /say [teks] \n";
-    $text .= "- /definition [teks] \n";
-    $text .= "- /coolteks [teks] \n";
-    $text .= "- /shalat [lokasi] \n";
-    $text .= "- /qiblat [teks] \n";
-    $text .= "- /film [teks] \n";
-    $text .= "- /film-syn [teks]\n";
-    $text .= "- /zodiak [tanggal lahir]\n";
-    $text .= "- /creator\n";
+    $text .= "- Help\n----[Media]----\n";
+    $text .= "- /jam .\n";
+    $text .= "- /quotes .\n";
+    $text .= "- /say [teks] .\n";
+    $text .= "- /definition [teks] .\n";
+    $text .= "- /coolteks [teks] .\n";
+    $text .= "- /shalat [lokasi] .\n";
+    $text .= "- /qiblat [teks] .\n";
+    $text .= "- /film [teks] .\n";
+    $text .= "- /film-syn [teks] .\n";
+    $text .= "- /zodiak [tanggal lahir] .\n";
+    $text .= "- /creator .\n";
     $balas = array(
         'replyToken' => $replyToken,
         'messages' => array(
@@ -560,7 +545,6 @@ if($message['type']=='text') {
     }
 }
 #-------------------------[Close]-------------------------#
-#-------------------------[Open]-------------------------#
 #-------------------------[Command Close]-------------------------#
 if (isset($balas)) {
     $result = json_encode($balas);

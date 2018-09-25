@@ -352,6 +352,7 @@ if($message['type']=='text') {
         $altText2 = "Followers : " . $result['a3'];
         $altText2 .= "\nFollowing :" . $result['a4'];
         $altText2 .= "\nPost :" . $result['a5'];
+	    $altText2 .= "\nBio :" . $result['a2'];
         $balas = array( 
             'replyToken' => $replyToken, 
             'messages' => array( 

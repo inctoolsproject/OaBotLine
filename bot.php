@@ -34,7 +34,7 @@ function quotes($keyword) {
     $result .= $json['result']['quotes'];
     $result .= "\nBy : ";
     $result .= $json['result']['by'];
-	$result = "\n「Done~」";
+	$result .= "\n「Done~」";
     return $result;
 }
 #-------------------------[Close]-------------------------#

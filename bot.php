@@ -86,17 +86,6 @@ function urb_dict($keyword) {
 }
 #-------------------------[Close]-------------------------#
 #-------------------------[Open]-------------------------#
-function coolt($keyword) { 
-    $uri = "https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20171227T171852Z.fda4bd604c7bf41f.f939237fb5f802608e9fdae4c11d9dbdda94a0b5&text=" . $keyword . "&lang=id-id"; 
- 
-    $response = Unirest\Request::get("$uri"); 
- 
-    $json = json_decode($response->raw_body, true); 
-    $result .= "https://api.farzain.com/cooltext.php?text=" . $keyword . "&apikey=fDh6y7ZwXJ24eiArhGEJ55HgA";
-    return $result; 
-}
-#-------------------------[Close]-------------------------#
-#-------------------------[Open]-------------------------#
 function zodiak($keyword) {
     $uri = "https://script.google.com/macros/exec?service=AKfycbw7gKzP-WYV2F5mc9RaR7yE3Ve1yN91Tjs91hp_jHSE02dSv9w&nama=ervan&tanggal=" . $keyword;
 
@@ -138,7 +127,7 @@ function film($keyword) {
     $response = Unirest\Request::get("$uri");
 
     $json = json_decode($response->raw_body, true);
-    $result = "Informasi」";
+    $result = "「Informasi Film」";
     $result = "\nJudul :";
 	$result .= $json['Title'];
 	$result .= "\nRilis : ";
@@ -151,7 +140,7 @@ function film($keyword) {
 	$result .= $json['Language'];
 	$result .= "\nNegara : ";
 	$result .= $json['Country'];
-	$result = "\n「Done~」";
+	$result .= "\n「Done~」";
     return $result;
 }
 #-------------------------[Close]-------------------------#
@@ -178,7 +167,7 @@ function shalat($keyword) {
 	$result .= "\nIsya : ";
 	$result .= $json['data']['Isha'];
 	$result .= "\n\nPencarian : Google";
-	$result = "\n「Done~」";
+	$result .= "\n「Done~」";
     return $result;
 }
 #-------------------------[Close]-------------------------#

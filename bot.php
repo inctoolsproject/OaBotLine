@@ -128,7 +128,7 @@ function film($keyword) {
 
     $json = json_decode($response->raw_body, true);
     $result = "「Informasi Film」";
-    $result = "\nJudul :";
+    $result .= "\nJudul :";
 	$result .= $json['Title'];
 	$result .= "\nRilis : ";
 	$result .= $json['Released'];

@@ -103,17 +103,17 @@ function zodiak($keyword) {
     $response = Unirest\Request::get("$uri");
 
     $json = json_decode($response->raw_body, true);
-    $result = "====[Zodiak]====";
+    $result = "「Zodiak Kamu」";
     $result .= "\nLahir : ";
-    $result .= $json['data']['lahir'];
-    $result .= "\nUsia : ";
-    $result .= $json['data']['usia'];
-    $result .= "\nUltah : ";
-    $result .= $json['data']['ultah'];
-    $result .= "\nZodiak : ";
-    $result .= $json['data']['zodiak'];
-    $result .= "\n\nPencarian : Google";
-    $result .= "\n====[Zodiak]====";
+	$result .= $json['data']['lahir'];
+	$result .= "\nUsia : ";
+	$result .= $json['data']['usia'];
+	$result .= "\nUltah : ";
+	$result .= $json['data']['ultah'];
+	$result .= "\nZodiak : ";
+	$result .= $json['data']['zodiak'];
+	$result .= "\n\nPencarian : Google";
+	$result .= "\n「Done~」";
     return $result;
 }
 #-------------------------[Close]-------------------------#
@@ -125,9 +125,9 @@ function film_syn($keyword) {
 
     $json = json_decode($response->raw_body, true);
     $result = "Judul : \n";
-    $result .= $json['Title'];
-    $result .= "\n\nSinopsis : \n";
-    $result .= $json['Plot'];
+	$result .= $json['Title'];
+	$result .= "\n\nSinopsis : \n";
+	$result .= $json['Plot'];
     return $result;
 }
 #-------------------------[Close]-------------------------#
@@ -138,18 +138,20 @@ function film($keyword) {
     $response = Unirest\Request::get("$uri");
 
     $json = json_decode($response->raw_body, true);
-    $result = "Judul : ";
-    $result .= $json['Title'];
-    $result .= "\nRilis : ";
-    $result .= $json['Released'];
-    $result .= "\nTipe : ";
-    $result .= $json['Genre'];
-    $result .= "\nActors : ";
-    $result .= $json['Actors'];
-    $result .= "\nBahasa : ";
-    $result .= $json['Language'];
-    $result .= "\nNegara : ";
-    $result .= $json['Country'];
+    $result = "Informasi」";
+    $result = "\nJudul :";
+	$result .= $json['Title'];
+	$result .= "\nRilis : ";
+	$result .= $json['Released'];
+	$result .= "\nTipe : ";
+	$result .= $json['Genre'];
+	$result .= "\nActors : ";
+	$result .= $json['Actors'];
+	$result .= "\nBahasa : ";
+	$result .= $json['Language'];
+	$result .= "\nNegara : ";
+	$result .= $json['Country'];
+	$result = "\n「Done~」";
     return $result;
 }
 #-------------------------[Close]-------------------------#
@@ -160,23 +162,23 @@ function shalat($keyword) {
     $response = Unirest\Request::get("$uri");
 
     $json = json_decode($response->raw_body, true);
-    $result = "====[JadwalShalat]====";
+    $result = "「Jadwal shalat」";
     $result .= "\nLokasi : ";
-    $result .= $json['location']['address'];
-    $result .= "\nTanggal : ";
-    $result .= $json['time']['date'];
-    $result .= "\n\nShubuh : ";
-    $result .= $json['data']['Fajr'];
-    $result .= "\nDzuhur : ";
-    $result .= $json['data']['Dhuhr'];
-    $result .= "\nAshar : ";
-    $result .= $json['data']['Asr'];
-    $result .= "\nMaghrib : ";
-    $result .= $json['data']['Maghrib'];
-    $result .= "\nIsya : ";
-    $result .= $json['data']['Isha'];
-    $result .= "\n\nPencarian : Google";
-    $result .= "\n====[JadwalShalat]====";
+	$result .= $json['location']['address'];
+	$result .= "\nTanggal : ";
+	$result .= $json['time']['date'];
+	$result .= "\n\nShubuh : ";
+	$result .= $json['data']['Fajr'];
+	$result .= "\nDzuhur : ";
+	$result .= $json['data']['Dhuhr'];
+	$result .= "\nAshar : ";
+	$result .= $json['data']['Asr'];
+	$result .= "\nMaghrib : ";
+	$result .= $json['data']['Maghrib'];
+	$result .= "\nIsya : ";
+	$result .= $json['data']['Isha'];
+	$result .= "\n\nPencarian : Google";
+	$result = "\n「Done~」";
     return $result;
 }
 #-------------------------[Close]-------------------------#

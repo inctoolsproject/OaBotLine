@@ -202,7 +202,7 @@ function qibla($keyword) {
 }
 //show menu, saat join dan command,menu
 if ($command == 'Help') {
-    $text .= "Keyword BedBotdzs ~~~\n\n";
+    $text .= "「Keyword Bedbotdzsxc~」";
     $text .= "- Help\n";
     $text .= "- /jam \n";
     $text .= "- /quotes \n";
@@ -215,6 +215,8 @@ if ($command == 'Help') {
     $text .= "- /film-syn [teks] \n";
     $text .= "- /zodiak [tanggal lahir] \n";
     $text .= "- /creator \n";
+	$text .= "- /instagram [unsername] \n";
+	$text .= "\n「Done~」";
     $balas = array(
         'replyToken' => $replyToken,
         'messages' => array(

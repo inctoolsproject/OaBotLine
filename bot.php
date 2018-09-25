@@ -24,6 +24,50 @@ if (count($pesan_datang) > 2) {
 }
 #-------------------------[Function Open]-------------------------#
 #-------------------------[Open]-------------------------#
+function coolt($keyword) { 
+    $uri = "https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20171227T171852Z.fda4bd604c7bf41f.f939237fb5f802608e9fdae4c11d9dbdda94a0b5&text=" . $keyword . "&lang=id-id"; 
+ 
+    $response = Unirest\Request::get("$uri"); 
+ 
+    $json = json_decode($response->raw_body, true); 
+    $result .= "https://api.farzain.com/cooltext.php?text=" . $keyword . "&apikey=fDh6y7ZwXJ24eiArhGEJ55HgA";
+    return $result; 
+}
+#-------------------------[Close]-------------------------#
+#-------------------------[Open]-------------------------#
+function qr($keyword) { 
+    $uri = "https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20171227T171852Z.fda4bd604c7bf41f.f939237fb5f802608e9fdae4c11d9dbdda94a0b5&text=" . $keyword . "&lang=id-id"; 
+ 
+    $response = Unirest\Request::get("$uri"); 
+ 
+    $json = json_decode($response->raw_body, true); 
+    $result .= "http://api.farzain.com/qrcode.php?id=" . $keyword . "&apikey=fDh6y7ZwXJ24eiArhGEJ55HgAf";
+    return $result; 
+}
+#-------------------------[Close]-------------------------#
+#-------------------------[Open]-------------------------#
+function neon($keyword) { 
+    $uri = "https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20171227T171852Z.fda4bd604c7bf41f.f939237fb5f802608e9fdae4c11d9dbdda94a0b5&text=" . $keyword . "&lang=id-id"; 
+ 
+    $response = Unirest\Request::get("$uri"); 
+ 
+    $json = json_decode($response->raw_body, true); 
+    $result .= "https://rest.farzain.com/api/photofunia/neon_sign.php?text=Ubed&apikey=fDh6y7ZwXJ24eiArhGEJ55HgA";
+    return $result; 
+}
+#-------------------------[Close]-------------------------#
+#-------------------------[Open]-------------------------#
+function light($keyword) { 
+    $uri = "https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20171227T171852Z.fda4bd604c7bf41f.f939237fb5f802608e9fdae4c11d9dbdda94a0b5&text=" . $keyword . "&lang=id-id"; 
+ 
+    $response = Unirest\Request::get("$uri"); 
+ 
+    $json = json_decode($response->raw_body, true); 
+    $result .= "http://api.farzain.com/photofunia/light_graffiti.php?text=" . $keyword . "&apikey=fDh6y7ZwXJ24eiArhGEJ55HgA";
+    return $result; 
+}
+#-------------------------[Close]-------------------------#
+#-------------------------[Open]-------------------------#
 function quotes($keyword) {
     $uri = "https://rest.farzain.com/api/motivation.php?apikey=fDh6y7ZwXJ24eiArhGEJ55HgA";
     $response = Unirest\Request::get("$uri");
@@ -210,9 +254,12 @@ if ($command == 'Help') {
     $text .= "- /definition [teks] \n";
     $text .= "- /coolteks [teks] \n";
     $text .= "- /shalat [lokasi] \n";
-    $text .= "- /qiblat [teks] \n";
+    $text .= "- /qiblat [lokasi] \n";
     $text .= "- /film [teks] \n";
-    $text .= "- /film-syn [teks] \n";
+    $text .= "- /qr [teks] \n";
+    $text .= "- /neon [teks] \n";
+    $text .= "- /light [Judul] \n";
+    $text .= "- /film-syn [Judul] \n";
     $text .= "- /zodiak [tanggal lahir] \n";
 		$text .= "- /instagram [unsername] \n";
     $text .= "- /creator \n";
@@ -608,6 +655,111 @@ if($message['type']=='text') {
                             'imageSize' => 'cover', 
                             'imageBackgroundColor' => '#FFFFFF', 
                             'title' => 'Qiblat Shalat', 
+                            'text' => 'Cek Full Image', 
+                            'actions' =>  
+                            array ( 
+                              0 =>  
+                              array ( 
+                                'type' => 'uri', 
+                                'label' => 'Click Here', 
+                                'uri' => $result, 
+                              ), 
+                            ), 
+                          ), 
+                        ) 
+            ) 
+        ); 
+    }
+}
+#-------------------------[Open]-------------------------#
+if($message['type']=='text') {
+        if ($command == '/qr') { 
+     
+        $result = qr($options);
+        $balas = array( 
+            'replyToken' => $replyToken, 
+            'messages' => array( 
+                array ( 
+                        'type' => 'template', 
+                          'altText' => 'Qr-code Generator', 
+                          'template' =>  
+                          array ( 
+                            'type' => 'buttons', 
+                            'thumbnailImageUrl' => $result, 
+                            'imageAspectRatio' => 'rectangle', 
+                            'imageSize' => 'cover', 
+                            'imageBackgroundColor' => '#FFFFFF', 
+                            'title' => 'Qr-code', 
+                            'text' => 'Cek Full Image', 
+                            'actions' =>  
+                            array ( 
+                              0 =>  
+                              array ( 
+                                'type' => 'uri', 
+                                'label' => 'Click Here', 
+                                'uri' => $result, 
+                              ), 
+                            ), 
+                          ), 
+                        ) 
+            ) 
+        ); 
+    }
+}
+#-------------------------[Open]-------------------------#
+if($message['type']=='text') {
+        if ($command == '/neon') { 
+     
+        $result = neon($options);
+        $balas = array( 
+            'replyToken' => $replyToken, 
+            'messages' => array( 
+                array ( 
+                        'type' => 'template', 
+                          'altText' => 'Neon teks', 
+                          'template' =>  
+                          array ( 
+                            'type' => 'buttons', 
+                            'thumbnailImageUrl' => $result, 
+                            'imageAspectRatio' => 'rectangle', 
+                            'imageSize' => 'cover', 
+                            'imageBackgroundColor' => '#FFFFFF', 
+                            'title' => 'Teks Image Generator', 
+                            'text' => 'Cek Full Image', 
+                            'actions' =>  
+                            array ( 
+                              0 =>  
+                              array ( 
+                                'type' => 'uri', 
+                                'label' => 'Click Here', 
+                                'uri' => $result, 
+                              ), 
+                            ), 
+                          ), 
+                        ) 
+            ) 
+        ); 
+    }
+}
+#-------------------------[Open]-------------------------#
+if($message['type']=='text') {
+        if ($command == '/light') { 
+     
+        $result = light($options);
+        $balas = array( 
+            'replyToken' => $replyToken, 
+            'messages' => array( 
+                array ( 
+                        'type' => 'template', 
+                          'altText' => 'Light teks', 
+                          'template' =>  
+                          array ( 
+                            'type' => 'buttons', 
+                            'thumbnailImageUrl' => $result, 
+                            'imageAspectRatio' => 'rectangle', 
+                            'imageSize' => 'cover', 
+                            'imageBackgroundColor' => '#FFFFFF', 
+                            'title' => 'Teks Image Generator', 
                             'text' => 'Cek Full Image', 
                             'actions' =>  
                             array ( 

@@ -41,7 +41,7 @@ function qr($keyword) {
     $response = Unirest\Request::get("$uri"); 
  
     $json = json_decode($response->raw_body, true); 
-    $result .= "http://api.farzain.com/qrcode.php?id=" . $keyword . "&apikey=fDh6y7ZwXJ24eiArhGEJ55HgAf";
+    $result .= "https://rest.farzain.com/qrcode.php?id=" . $keyword . "&apikey=fDh6y7ZwXJ24eiArhGEJ55HgAf";
     return $result; 
 }
 #-------------------------[Close]-------------------------#
@@ -63,7 +63,7 @@ function light($keyword) {
     $response = Unirest\Request::get("$uri"); 
  
     $json = json_decode($response->raw_body, true); 
-    $result .= "http://api.farzain.com/photofunia/light_graffiti.php?text=" . $keyword . "&apikey=fDh6y7ZwXJ24eiArhGEJ55HgA";
+    $result .= "https://rest.farzain.com/photofunia/light_graffiti.php?text=" . $keyword . "&apikey=fDh6y7ZwXJ24eiArhGEJ55HgA";
     return $result; 
 }
 #-------------------------[Close]-------------------------#

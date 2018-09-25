@@ -202,7 +202,7 @@ function qibla($keyword) {
 }
 //show menu, saat join dan command,menu
 if ($command == 'Help') {
-    $text .= "「Keyword Bedbotdzsxc~」\n\n";
+    $text .= "「Keyword RpdBot~」\n\n";
     $text .= "- Help\n";
     $text .= "- /jam \n";
     $text .= "- /quotes \n";
@@ -214,8 +214,8 @@ if ($command == 'Help') {
     $text .= "- /film [teks] \n";
     $text .= "- /film-syn [teks] \n";
     $text .= "- /zodiak [tanggal lahir] \n";
+		$text .= "- /instagram [unsername] \n";
     $text .= "- /creator \n";
-	$text .= "- /instagram [unsername] \n";
 	$text .= "\n「Done~」";
     $balas = array(
         'replyToken' => $replyToken,
@@ -393,7 +393,7 @@ if($message['type']=='text') {
             'messages' => array( 
                 array ( 
                         'type' => 'template', 
-                          'altText' => 'Instagram' . $options, 
+                          'altText' => 'Instagram  @' . $options, 
                           'template' =>  
                           array ( 
                             'type' => 'buttons', 
@@ -513,7 +513,7 @@ if($message['type']=='text') {
             'messages' => array( 
                 array ( 
                         'type' => 'template', 
-                          'altText' => 'About Creator BedBotdzs', 
+                          'altText' => 'About Creator RpdBot', 
                           'template' =>  
                           array ( 
                             'type' => 'buttons', 
@@ -522,7 +522,7 @@ if($message['type']=='text') {
                             'imageSize' => 'cover', 
                             'imageBackgroundColor' => '#FFFFFF', 
                             'title' => 'Muhammad Raihan Permadi', 
-                            'text' => 'Creator BedBotdzs', 
+                            'text' => 'Creator RpdBot', 
                             'actions' =>  
                             array ( 
                               0 =>  

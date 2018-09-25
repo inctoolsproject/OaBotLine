@@ -28,11 +28,13 @@ function quotes($keyword) {
     $uri = "https://rest.farzain.com/api/motivation.php?apikey=fDh6y7ZwXJ24eiArhGEJ55HgA";
     $response = Unirest\Request::get("$uri");
     $json = json_decode($response->raw_body, true);
-    $result = "Status : Success!!!";
+    $result = "「Quotes」";
+    $result .= "Status : Success!!!";
     $result .= "\nQuotes : ";
     $result .= $json['result']['quotes'];
     $result .= "\nBy : ";
     $result .= $json['result']['by'];
+	$result = "\n「Done~」";
     return $result;
 }
 #-------------------------[Close]-------------------------#

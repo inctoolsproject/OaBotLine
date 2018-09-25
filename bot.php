@@ -202,7 +202,7 @@ function qibla($keyword) {
 }
 //show menu, saat join dan command,menu
 if ($command == 'Help') {
-    $text .= "「Keyword Bedbotdzsxc~」";
+    $text .= "「Keyword Bedbotdzsxc~」\n\n";
     $text .= "- Help\n";
     $text .= "- /jam \n";
     $text .= "- /quotes \n";
@@ -360,11 +360,11 @@ if($message['type']=='text') {
                           'template' =>  
                           array ( 
                             'type' => 'buttons', 
-                            'thumbnailImageUrl' => '', 
+                            'thumbnailImageUrl' => 'Error', 
                             'imageAspectRatio' => 'rectangle', 
                             'imageSize' => 'cover', 
                             'imageBackgroundColor' => '#FFFFFF', 
-                            'title' => '', 
+                            'title' => 'Halo', 
                             'text' => $result, 
                             'actions' =>  
                             array ( 
@@ -388,7 +388,6 @@ if($message['type']=='text') {
         $altText2 = "Followers : " . $result['a3'];
         $altText2 .= "\nFollowing :" . $result['a4'];
         $altText2 .= "\nPost :" . $result['a5'];
-	    $altText2 .= "\nBio :" . $result['a2'];
         $balas = array( 
             'replyToken' => $replyToken, 
             'messages' => array( 

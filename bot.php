@@ -360,6 +360,9 @@ if($message['type']=='text') {
                           'template' =>  
                           array ( 
                             'type' => 'buttons', 
+                            'thumbnailImageUrl' => '', 
+                            'imageAspectRatio' => 'rectangle', 
+                            'imageSize' => 'cover', 
                             'imageBackgroundColor' => '#FFFFFF', 
                             'title' => '', 
                             'text' => $result, 

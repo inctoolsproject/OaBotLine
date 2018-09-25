@@ -52,7 +52,7 @@ function neon($keyword) {
     $response = Unirest\Request::get("$uri"); 
  
     $json = json_decode($response->raw_body, true); 
-    $result .= "https://rest.farzain.com/api/photofunia/neon_sign.php?text=Ubed&apikey=fDh6y7ZwXJ24eiArhGEJ55HgA";
+    $result .= "https://rest.farzain.com/api/photofunia/neon_sign.php?text=" . $keyword . "&apikey=fDh6y7ZwXJ24eiArhGEJ55HgA";
     return $result; 
 }
 #-------------------------[Close]-------------------------#

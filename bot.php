@@ -393,11 +393,14 @@ if ($command == '/jam') {
 }
 }
 #-------------------------[Open]-------------------------#
+#-------------------------[Open]-------------------------#
 if($message['type']=='text') {
         if ($command == '/quoted') {
         $result = quotes($options);
         $balas = array(
-        array (
+            'replyToken' => $replyToken,
+            'messages' => array(
+                array (
   'type' => 'bubble',
   'styles' => 
   array (
@@ -468,10 +471,11 @@ if($message['type']=='text') {
       ),
     ),
   ),
-),
-    );
-}
-}
+)
+            )
+        );
+    }
+}   
 if($message['type']=='text') {
     if ($command == '/instagram') { 
         

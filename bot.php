@@ -433,7 +433,7 @@ if($message['type']=='text') {
         array (
           'type': 'uri',
           'label': 'Creator',
-          'uri': 'https://line.me/ti/p/~heefpuy'
+          'uri': 'https://line.me/ti/p/~heefpuy',
         ),
       ),
     ),

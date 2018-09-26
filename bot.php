@@ -392,58 +392,84 @@ if ($command == '/jam') {
         ); 
 }
 }
-#-------------------------[Close]-------------------------#
+#-------------------------[Open]-------------------------#
 if($message['type']=='text') {
-    if ($command == '/test123') { 
-    //$text = "Terimakasih sudah mengundang Puy ke Grup\n\nInfo perintah Puy :\n#menu\n#about\n#myinfo";
-    $balas = array(
-        'replyToken' => $replyToken,
-        'messages' => array(
-          array (
-  'type' => 'template',
-  'altText' => 'Invited to Group',
-  'template' =>
+        if ($command == '/quoted') {
+        $result = quotes($options);
+        $balas = array(
+        array (
+  'type' => 'bubble',
+  'styles' => 
   array (
-    'type' => 'carousel',
-    'columns' =>
+    'footer' => 
     array (
-        0 =>
+      'separator' => true,
+    ),
+  ),
+  'body' => 
+  array (
+    'type' => 'box',
+    'layout' => 'vertical',
+    'contents' => 
+    array (
+      0 => 
       array (
-        //'thumbnailImageUrl' => ' ',
-        //'imageBackgroundColor' => '#FFFFFF',
-        //'title' => 'Thx for invited Puy to Group!',
-        'text' => 'Thx for invited Puy to Group!',
-        //'defaultAction' =>
-        //array (
-          //'type' => 'uri',
-          //'label' => 'View detail',
-          //'uri' => 'https://line.me/ti/p/~heefpuy',
-        //),
-        'actions' =>
+        'type' => 'text',
+        'text' => 'Quotes',
+        'weight' => 'bold',
+        'color' => '#1DB446',
+        'size' => 'sm',
+      ),
+      1 => 
+      array (
+        'type' => 'text',
+        'text' => 'Quotes',
+        'weight' => 'bold',
+        'size' => 'xxl',
+        'margin' => 'md',
+      ),
+      2 => 
+      array (
+        'type' => 'text',
+        'text' => $result,
+        'size' => 'xs',
+        'color' => '#aaaaaa',
+        'wrap' => true,
+      ),
+      3 => 
+      array (
+        'type' => 'separator',
+        'margin' => 'xxl',
+      ),
+      4 => 
+      array (
+        'type' => 'box',
+        'layout' => 'horizontal',
+        'margin' => 'md',
+        'contents' => 
         array (
-          0 =>
+          0 => 
           array (
-            'type' => 'message',
-            'label' => 'Perintah',
-            'text' => '#menu',
+            'type' => 'text',
+            'text' => 'RpdBot',
+            'size' => 'xs',
+            'color' => '#aaaaaa',
+            'flex' => 0,
           ),
-        ),
-      array (
-        0 =>
-        array (
-          'type': 'uri',
-          'label': 'Creator',
-          'uri': 'https://line.me/ti/p/~heefpuy',
+          1 => 
+          array (
+            'type' => 'text',
+            'text' => '#2018',
+            'color' => '#aaaaaa',
+            'size' => 'xs',
+            'align' => 'end',
+          ),
         ),
       ),
     ),
   ),
-  'imageAspectRatio' => 'square',
-  'imageSize' => 'contain',
-),
 )
-)
-);
+    );
 }
 }
 if($message['type']=='text') {

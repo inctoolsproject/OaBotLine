@@ -395,86 +395,79 @@ if ($command == '/jam') {
 #-------------------------[Open]-------------------------#
 #-------------------------[Open]-------------------------#
 if($message['type']=='text') {
-        if ($command == '/quoted') {
-        $result = quotes($options);
+        if ($command == '/test123') {
+
+        $result = bitly($options);
         $balas = array(
             'replyToken' => $replyToken,
             'messages' => array(
                 array (
-  'type' => 'bubble',
-  'styles' => 
-  array (
-    'footer' => 
-    array (
-      'separator' => true,
-    ),
-  ),
-  'body' => 
-  array (
-    'type' => 'box',
-    'layout' => 'vertical',
-    'contents' => 
-    array (
-      0 => 
-      array (
-        'type' => 'text',
-        'text' => 'Quotes',
-        'weight' => 'bold',
-        'color' => '#1DB446',
-        'size' => 'sm',
-      ),
-      1 => 
-      array (
-        'type' => 'text',
-        'text' => 'Quotes',
-        'weight' => 'bold',
-        'size' => 'xxl',
-        'margin' => 'md',
-      ),
-      2 => 
-      array (
-        'type' => 'text',
-        'text' => 'Test Doang elah',
-        'size' => 'xs',
-        'color' => '#aaaaaa',
-        'wrap' => true,
-      ),
-      3 => 
-      array (
-        'type' => 'separator',
-        'margin' => 'xxl',
-      ),
-      4 => 
-      array (
-        'type' => 'box',
-        'layout' => 'horizontal',
-        'margin' => 'md',
-        'contents' => 
-        array (
-          0 => 
-          array (
-            'type' => 'text',
-            'text' => 'RpdBot',
-            'size' => 'xs',
-            'color' => '#aaaaaa',
-            'flex' => 0,
-          ),
-          1 => 
-          array (
-            'type' => 'text',
-            'text' => '#2018',
-            'color' => '#aaaaaa',
-            'size' => 'xs',
-            'align' => 'end',
-          ),
-        ),
-      ),
-    ),
-  ),
-)
+				  'type' => 'bubble',
+				  'styles' => 
+				  array (
+				    'footer' => 
+				    array (
+				      'separator' => true,
+				    ),
+				  ),
+				  'body' => 
+				  array (
+				    'type' => 'box',
+				    'layout' => 'vertical',
+				    'contents' => 
+				    array (
+				      0 => 
+				      array (
+				        'type' => 'text',
+				        'text' => 'Arti Nama',
+				        'weight' => 'bold',
+				        'size' => 'xxl',
+				        'margin' => 'md',
+				      ),
+				      1 => 
+				      array (
+				        'type' => 'text',
+				        'text' => 'Test',
+				        'size' => 'xs',
+				        'color' => '#aaaaaa',
+				        'wrap' => true,
+				      ),
+				      2 => 
+				      array (
+				        'type' => 'separator',
+				        'margin' => 'xxl',
+				      ),
+				      3 => 
+				      array (
+				        'type' => 'box',
+				        'layout' => 'horizontal',
+				        'margin' => 'md',
+				        'contents' => 
+				        array (
+				          0 => 
+				          array (
+				            'type' => 'text',
+				            'text' => 'RpdBot',
+				            'size' => 'xs',
+				            'color' => '#aaaaaa',
+				            'flex' => 0,
+				          ),
+				          1 => 
+				          array (
+				            'type' => 'text',
+				            'text' => '#2018',
+				            'color' => '#aaaaaa',
+				            'size' => 'xs',
+				            'align' => 'end',
+				          ),
+				        ),
+				      ),
+				    ),
+				  ),
+				)
             )
         );
-    }
+	}
 }   
 if($message['type']=='text') {
     if ($command == '/instagram') { 

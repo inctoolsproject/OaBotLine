@@ -251,7 +251,7 @@ if ($command == 'Help') {
     $text .= "- /quotes \n";
     $text .= "- /say [teks] \n";
     $text .= "- /definition [teks] \n";
-    $text .= "- /coolteks [teks] \n";
+    $text .= "- /cooltext [teks] \n";
     $text .= "- /shalat [lokasi] \n";
     $text .= "- /qiblat [lokasi] \n";
     $text .= "- /film [teks] \n";
@@ -394,38 +394,57 @@ if ($command == '/jam') {
 }
 #-------------------------[Close]-------------------------#
 if($message['type']=='text') {
-    if ($command == '/test') { 
-        
-        $result = quotes($options);
-        $balas = array( 
-            'replyToken' => $replyToken, 
-            'messages' => array( 
-                array ( 
-                        'type' => 'template', 
-                          'altText' => 'Quotes', 
-                          'template' =>  
-                          array ( 
-                            'type' => 'buttons', 
-                            'thumbnailImageUrl' => 'Error', 
-                            'imageAspectRatio' => 'rectangle', 
-                            'imageSize' => 'cover', 
-                            'imageBackgroundColor' => '#FFFFFF', 
-                            'title' => 'Halo', 
-                            'text' => $result, 
-                            'actions' =>  
-                            array ( 
-                              0 =>  
-                              array ( 
-                                'type' => 'text', 
-                                'label' => 'Done', 
-                                'text' => 'Terimakasih Bot',
-                              ), 
-                            ), 
-                          ), 
-                        ) 
-            ) 
-        ); 
-    }
+    if ($command == '/test123') { 
+    //$text = "Terimakasih sudah mengundang Puy ke Grup\n\nInfo perintah Puy :\n#menu\n#about\n#myinfo";
+    $balas = array(
+        'replyToken' => $replyToken,
+        'messages' => array(
+          array (
+  'type' => 'template',
+  'altText' => 'Invited to Group',
+  'template' =>
+  array (
+    'type' => 'carousel',
+    'columns' =>
+    array (
+        0 =>
+      array (
+        //'thumbnailImageUrl' => ' ',
+        //'imageBackgroundColor' => '#FFFFFF',
+        //'title' => 'Thx for invited Puy to Group!',
+        'text' => 'Thx for invited Puy to Group!',
+        //'defaultAction' =>
+        //array (
+          //'type' => 'uri',
+          //'label' => 'View detail',
+          //'uri' => 'https://line.me/ti/p/~heefpuy',
+        //),
+        'actions' =>
+        array (
+          0 =>
+          array (
+            'type' => 'message',
+            'label' => 'Perintah',
+            'text' => '#menu',
+          ),
+        ),
+      array (
+        0 =>
+        array (
+          'type': 'uri',
+          'label': 'Creator',
+          'uri': 'https://line.me/ti/p/~heefpuy'
+        ),
+      ),
+    ),
+  ),
+  'imageAspectRatio' => 'square',
+  'imageSize' => 'contain',
+),
+)
+)
+);
+}
 }
 if($message['type']=='text') {
     if ($command == '/instagram') { 
@@ -439,7 +458,7 @@ if($message['type']=='text') {
             'messages' => array( 
                 array ( 
                         'type' => 'template', 
-                          'altText' => 'Instagram  @' . $options, 
+                          'altText' => 'Instagram @' . $options, 
                           'template' =>  
                           array ( 
                             'type' => 'buttons', 
@@ -499,37 +518,18 @@ if ($message['type'] == 'text') {
 #-------------------------[Close]-------------------------#
 #-------------------------[Open]-------------------------#
 if($message['type']=='text') {
-        if ($command == '/coolt') { 
-     
+	    if ($command == '/cooltext') {
         $result = coolt($options);
-        $balas = array( 
-            'replyToken' => $replyToken, 
-            'messages' => array( 
-                array ( 
-                        'type' => 'template', 
-                          'altText' => 'Cool Text', 
-                          'template' =>  
-                          array ( 
-                            'type' => 'buttons', 
-                            'thumbnailImageUrl' => $result, 
-                            'imageAspectRatio' => 'rectangle', 
-                            'imageSize' => 'cover', 
-                            'imageBackgroundColor' => '#FFFFFF', 
-                            'title' => 'Cool Text Generator V1.0', 
-                            'text' => 'Link Image', 
-                            'actions' =>  
-                            array ( 
-                              0 =>  
-                              array ( 
-                                'type' => 'uri', 
-                                'label' => 'Click Here', 
-                                'uri' => $result, 
-                              ), 
-                            ), 
-                          ), 
-                        ) 
-            ) 
-        ); 
+        $balas = array(
+            'replyToken' => $replyToken,
+            'messages' => array(
+                array(
+                  'type' => 'image',
+                  'originalContentUrl' => $result,
+                  'previewImageUrl' => $result
+                )
+            )
+        );
     }
 }
 #-------------------------[Close]-------------------------#

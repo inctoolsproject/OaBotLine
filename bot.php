@@ -434,7 +434,7 @@ if($message['type']=='text') {
       2 => 
       array (
         'type' => 'text',
-        'text' => $result,
+        'text' => 'Test Doang elah',
         'size' => 'xs',
         'color' => '#aaaaaa',
         'wrap' => true,

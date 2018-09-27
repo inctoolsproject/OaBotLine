@@ -433,7 +433,7 @@ if ($command == '/jam') {
 }
 if($message['type']=='text') {
         if ($command == '/jadwaltv') {
-        $result = arti($options);
+        $result = tv($options);
         $balas = array(
             'replyToken' => $replyToken,
             'messages' => array(

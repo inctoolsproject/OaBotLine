@@ -23,6 +23,18 @@ if (count($pesan_datang) > 2) {
     }
 }
 #-------------------------[Function Open]-------------------------#
+function tv($keyword) {
+    $uri = "https://rest.farzain.com/api/acaratv.php?id=" . $keyword . "&apikey=fDh6y7ZwXJ24eiArhGEJ55HgA";
+    $response = Unirest\Request::get("$uri");
+    $json = json_decode($response->raw_body, true);
+    $result = "「Jadwal AcaraTV」";
+    $result .= "\nStatus : Success!!!";
+    $result .= "\nStasiun : " . $keyword . "-";
+    $result .= "\nJadwal : ";
+    $result .= $json['result'];
+    $result .= "\n「Done~」";
+    return $result;
+}
 #-------------------------[Open]-------------------------#
 function coolt($keyword) { 
     $uri = "https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20171227T171852Z.fda4bd604c7bf41f.f939237fb5f802608e9fdae4c11d9dbdda94a0b5&text=" . $keyword . "&lang=id-id"; 
@@ -45,6 +57,18 @@ function qr($keyword) {
     return $result; 
 }
 #-------------------------[Close]-------------------------#
+function ahli($keyword) {
+    $uri = "https://rest.farzain.com/api/ahli.php?name=" . $keyword . "&apikey=fDh6y7ZwXJ24eiArhGEJ55HgA";
+  
+    $response = Unirest\Request::get("$uri");
+  
+    $json = json_decode($response->raw_body, true);
+    $parsed = array();
+    $parsed['a1'] = $json['result']['result'];
+    $parsed['a2'] = $json['result']['image'];
+    $parsed['a3'] = "Nama :" . $keyword . "-";
+    return $parsed;
+}
 #-------------------------[Open]-------------------------#
 function neon($keyword) { 
     $uri = "https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20171227T171852Z.fda4bd604c7bf41f.f939237fb5f802608e9fdae4c11d9dbdda94a0b5&text=" . $keyword . "&lang=id-id"; 
@@ -77,10 +101,22 @@ function quotes($keyword) {
     $result .= $json['result']['quotes'];
     $result .= "\nBy : ";
     $result .= $json['result']['by'];
-	$result .= "\n「Done~」";
+    $result .= "\n「Done~」";
     return $result;
 }
 #-------------------------[Close]-------------------------#
+function arti($keyword) {
+    $uri = "https://rest.farzain.com/api/nama.php?q=" . $keyword . "&apikey=fDh6y7ZwXJ24eiArhGEJ55HgA";
+    $response = Unirest\Request::get("$uri");
+    $json = json_decode($response->raw_body, true);
+    $result = "「Arti Nama」";
+    $result .= "\nStatus : Success!!!";
+    $result .= "\nNama : " . $keyword . "-";
+    $result .= "\nArti Nama : ";
+    $result .= $json['result'];
+    $result .= "\n「Done~」";
+    return $result;
+}
 #-------------------------[Open]-------------------------#
 function wib($keyword) {
     $uri = "https://time.siswadi.com/timezone/?address=Jakarta";
@@ -139,15 +175,15 @@ function zodiak($keyword) {
     $json = json_decode($response->raw_body, true);
     $result = "「Zodiak Kamu」";
     $result .= "\nLahir : ";
-	$result .= $json['data']['lahir'];
-	$result .= "\nUsia : ";
-	$result .= $json['data']['usia'];
-	$result .= "\nUltah : ";
-	$result .= $json['data']['ultah'];
-	$result .= "\nZodiak : ";
-	$result .= $json['data']['zodiak'];
-	$result .= "\n\nPencarian : Google";
-	$result .= "\n「Done~」";
+    $result .= $json['data']['lahir'];
+    $result .= "\nUsia : ";
+    $result .= $json['data']['usia'];
+    $result .= "\nUltah : ";
+    $result .= $json['data']['ultah'];
+    $result .= "\nZodiak : ";
+    $result .= $json['data']['zodiak'];
+    $result .= "\n\nPencarian : Google";
+    $result .= "\n「Done~」";
     return $result;
 }
 #-------------------------[Close]-------------------------#
@@ -159,9 +195,9 @@ function film_syn($keyword) {
 
     $json = json_decode($response->raw_body, true);
     $result = "Judul : \n";
-	$result .= $json['Title'];
-	$result .= "\n\nSinopsis : \n";
-	$result .= $json['Plot'];
+    $result .= $json['Title'];
+    $result .= "\n\nSinopsis : \n";
+    $result .= $json['Plot'];
     return $result;
 }
 #-------------------------[Close]-------------------------#
@@ -174,18 +210,18 @@ function film($keyword) {
     $json = json_decode($response->raw_body, true);
     $result = "「Informasi Film」";
     $result .= "\nJudul :";
-	$result .= $json['Title'];
-	$result .= "\nRilis : ";
-	$result .= $json['Released'];
-	$result .= "\nTipe : ";
-	$result .= $json['Genre'];
-	$result .= "\nActors : ";
-	$result .= $json['Actors'];
-	$result .= "\nBahasa : ";
-	$result .= $json['Language'];
-	$result .= "\nNegara : ";
-	$result .= $json['Country'];
-	$result .= "\n「Done~」";
+    $result .= $json['Title'];
+    $result .= "\nRilis : ";
+    $result .= $json['Released'];
+    $result .= "\nTipe : ";
+    $result .= $json['Genre'];
+    $result .= "\nActors : ";
+    $result .= $json['Actors'];
+    $result .= "\nBahasa : ";
+    $result .= $json['Language'];
+    $result .= "\nNegara : ";
+    $result .= $json['Country'];
+    $result .= "\n「Done~」";
     return $result;
 }
 #-------------------------[Close]-------------------------#
@@ -198,21 +234,21 @@ function shalat($keyword) {
     $json = json_decode($response->raw_body, true);
     $result = "「Jadwal shalat」";
     $result .= "\nLokasi : ";
-	$result .= $json['location']['address'];
-	$result .= "\nTanggal : ";
-	$result .= $json['time']['date'];
-	$result .= "\n\nShubuh : ";
-	$result .= $json['data']['Fajr'];
-	$result .= "\nDzuhur : ";
-	$result .= $json['data']['Dhuhr'];
-	$result .= "\nAshar : ";
-	$result .= $json['data']['Asr'];
-	$result .= "\nMaghrib : ";
-	$result .= $json['data']['Maghrib'];
-	$result .= "\nIsya : ";
-	$result .= $json['data']['Isha'];
-	$result .= "\n\nPencarian : Google";
-	$result .= "\n「Done~」";
+    $result .= $json['location']['address'];
+    $result .= "\nTanggal : ";
+    $result .= $json['time']['date'];
+    $result .= "\n\nShubuh : ";
+    $result .= $json['data']['Fajr'];
+    $result .= "\nDzuhur : ";
+    $result .= $json['data']['Dhuhr'];
+    $result .= "\nAshar : ";
+    $result .= $json['data']['Asr'];
+    $result .= "\nMaghrib : ";
+    $result .= $json['data']['Maghrib'];
+    $result .= "\nIsya : ";
+    $result .= $json['data']['Isha'];
+    $result .= "\n\nPencarian : Google";
+    $result .= "\n「Done~」";
     return $result;
 }
 #-------------------------[Close]-------------------------#
@@ -257,12 +293,15 @@ if ($command == 'Help') {
     $text .= "- /film [teks] \n";
     $text .= "- /qr [teks] \n";
     $text .= "- /neon [teks] \n";
-    $text .= "- /light [Judul] \n";
+    $text .= "- /ahli [nama] \n";
+    $text .= "- /arti-nama [nama] \n";
+    $text .= "- /light [teks] \n";
     $text .= "- /film-syn [Judul] \n";
     $text .= "- /zodiak [tanggal lahir] \n";
-		$text .= "- /instagram [unsername] \n";
+        $text .= "- /instagram [unsername] \n";
+        $text .= "- /jadwaltv [stasiun] \n";
     $text .= "- /creator \n";
-	$text .= "\n「Done~」";
+    $text .= "\n「Done~」";
     $balas = array(
         'replyToken' => $replyToken,
         'messages' => array(
@@ -392,82 +431,95 @@ if ($command == '/jam') {
         ); 
 }
 }
+if($message['type']=='text') {
+        if ($command == '/jadwaltv') {
+        $result = arti($options);
+        $balas = array(
+            'replyToken' => $replyToken,
+            'messages' => array(
+                array( 
+                    'type' => 'text',
+                    'text' => $result
+                )
+            )
+        );
+    }
+}
 #-------------------------[Open]-------------------------#
 #-------------------------[Open]-------------------------#
 if($message['type']=='text') {
         if ($command == '/test123') {
 
-        $result = bitly($options);
         $balas = array(
             'replyToken' => $replyToken,
             'messages' => array(
                 array (
-				  'type' => 'bubble',
-				  'styles' => 
-				  array (
-				    'footer' => 
-				    array (
-				      'separator' => true,
-				    ),
-				  ),
-				  'body' => 
-				  array (
-				    'type' => 'box',
-				    'layout' => 'vertical',
-				    'contents' => 
-				    array (
-				      0 => 
-				      array (
-				        'type' => 'text',
-				        'text' => 'Arti Nama',
-				        'weight' => 'bold',
-				        'size' => 'xxl',
-				        'margin' => 'md',
-				      ),
-				      1 => 
-				      array (
-				        'type' => 'text',
-				        'text' => 'Test',
-				        'size' => 'xs',
-				        'color' => '#aaaaaa',
-				        'wrap' => true,
-				      ),
-				      2 => 
-				      array (
-				        'type' => 'separator',
-				        'margin' => 'xxl',
-				      ),
-				      3 => 
-				      array (
-				        'type' => 'box',
-				        'layout' => 'horizontal',
-				        'margin' => 'md',
-				        'contents' => 
-				        array (
-				          0 => 
-				          array (
-				            'type' => 'text',
-				            'text' => 'RpdBot',
-				            'size' => 'xs',
-				            'color' => '#aaaaaa',
-				            'flex' => 0,
-				          ),
-				          1 => 
-				          array (
-				            'type' => 'text',
-				            'text' => '#2018',
-				            'color' => '#aaaaaa',
-				            'size' => 'xs',
-				            'align' => 'end',
-				          ),
-				        ),
-				      ),
-				    ),
-				  ),
-				)
+                  'type' => 'bubble',
+                  'styles' => 
+                  array (
+                    'footer' => 
+                    array (
+                      'separator' => true,
+                    ),
+                  ),
+                  'body' => 
+                  array (
+                    'type' => 'box',
+                    'layout' => 'vertical',
+                    'contents' => 
+                    array (
+                      0 => 
+                      array (
+                        'type' => 'text',
+                        'text' => 'Arti Nama',
+                        'weight' => 'bold',
+                        'size' => 'xxl',
+                        'margin' => 'md',
+                      ),
+                      1 => 
+                      array (
+                        'type' => 'text',
+                        'text' => 'Test',
+                        'size' => 'xs',
+                        'color' => '#aaaaaa',
+                        'wrap' => true,
+                      ),
+                      2 => 
+                      array (
+                        'type' => 'separator',
+                        'margin' => 'xxl',
+                      ),
+                      3 => 
+                      array (
+                        'type' => 'box',
+                        'layout' => 'horizontal',
+                        'margin' => 'md',
+                        'contents' => 
+                        array (
+                          0 => 
+                          array (
+                            'type' => 'text',
+                            'text' => 'RpdBot',
+                            'size' => 'xs',
+                            'color' => '#aaaaaa',
+                            'flex' => 0,
+                          ),
+                          1 => 
+                          array (
+                            'type' => 'text',
+                            'text' => '#2018',
+                            'color' => '#aaaaaa',
+                            'size' => 'xs',
+                            'align' => 'end',
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                )
             )
         );
-	}
+    }
 }   
 if($message['type']=='text') {
     if ($command == '/instagram') { 
@@ -538,10 +590,45 @@ if ($message['type'] == 'text') {
         );
     }
 }
+#-------------------------[Open]-------------------------#
+if($message['type']=='text') {
+        if ($command == '/ahli') { 
+     
+        $result = ahli($options);
+        $balas = array( 
+            'replyToken' => $replyToken, 
+            'messages' => array( 
+                array ( 
+                        'type' => 'template', 
+                          'altText' => 'Kamu Ahli apa?', 
+                          'template' =>  
+                          array ( 
+                            'type' => 'buttons', 
+                            'thumbnailImageUrl' => $result['a2'], 
+                            'imageAspectRatio' => 'rectangle', 
+                            'imageSize' => 'cover', 
+                            'imageBackgroundColor' => '#FFFFFF', 
+                            'title' => $reult['a3'], 
+                            'text' => $reult['a1'], 
+                            'actions' =>  
+                            array ( 
+                              0 =>  
+                              array ( 
+                                'type' => 'message', 
+                                'label' => 'Done', 
+                                'text' => 'Terimakasih RpdBot', 
+                              ), 
+                            ), 
+                          ), 
+                        ) 
+            ) 
+        ); 
+    }
+}
 #-------------------------[Close]-------------------------#
 #-------------------------[Open]-------------------------#
 if($message['type']=='text') {
-	    if ($command == '/cooltext') {
+        if ($command == '/cooltext') {
         $result = coolt($options);
         $balas = array(
             'replyToken' => $replyToken,
@@ -691,6 +778,20 @@ if($message['type']=='text') {
                         ) 
             ) 
         ); 
+    }
+}
+if($message['type']=='text') {
+        if ($command == '/arti-nama') {
+        $result = arti($options);
+        $balas = array(
+            'replyToken' => $replyToken,
+            'messages' => array(
+                array( 
+                    'type' => 'text',
+                    'text' => $result
+                )
+            )
+        );
     }
 }
 #-------------------------[Open]-------------------------#
